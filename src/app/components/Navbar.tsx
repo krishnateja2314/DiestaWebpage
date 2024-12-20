@@ -40,7 +40,7 @@ const Navbar = () => {
           "flex flex-col justify-items-end h-max duration-150 " +
           `${
             isOpen
-              ? " transition-shadow bg-gradient-to-b from-primary via-tertiary to-quaternary from-black text-white"
+              ? " bg-gradient-to-b from-primary via-tertiary to-quaternary from-black text-white"
               : ""
           } `
         }
