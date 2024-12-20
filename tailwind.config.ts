@@ -9,10 +9,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: "#1A1A1D",
+        secondry: "#3B1C32",
+        tertiary: "#6A1E55",
+        quaternary: "#A64D79",
       },
     },
   },
   plugins: [],
 } satisfies Config;
+
+  
+  
