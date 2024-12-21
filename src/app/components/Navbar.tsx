@@ -3,44 +3,110 @@ import Link from "next/link";
 import React from "react";
 import { useState } from "react";
 import { useWindowSize } from "react-use";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const size = useWindowSize();
+  const path = usePathname();
+  console.log(path);
   return size.width > 640 ? (
-    <nav className="h-20 flex justify-between bg-gradient-to-b from-black text-white">
+    <nav className="h-20 flex justify-between bg-gradient-to-b from-secondry ">
       <Link className="hover:skew-x-12 duration-100" href="/">
         <img src="/diestaLogo.svg" alt="Logo" className="max-h-12 m-4" />
       </Link>
-      <div className="flex justify-between gap-4 mr-4 mt-auto mb-auto">
-        <Link className="hover:-translate-y-1 duration-100" href="/events">
+      <div className="flex justify-between gap-4 mr-4 mt-auto mb-auto ">
+        <Link
+          className={
+            "hover:-translate-y-1 duration-100 font-bold " +
+            `${
+              path == "/"
+                ? "text-white"
+                : "bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent"
+            }`
+          }
+          href="/"
+        >
+          <span>Home</span>
+        </Link>
+        <Link
+          className={
+            "hover:-translate-y-1 duration-100 font-bold " +
+            `${
+              path == "/events"
+                ? "text-white"
+                : "bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent"
+            }`
+          }
+          href="/events"
+        >
           <span>Events</span>
         </Link>
-        <Link className="hover:-translate-y-1 duration-100" href="/rulebook">
+        <Link
+          className={
+            "hover:-translate-y-1 duration-100 font-bold " +
+            `${
+              path == "/rulebook"
+                ? "text-white"
+                : "bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent"
+            }`
+          }
+          href="/rulebook"
+        >
           <span>Rulebook</span>
         </Link>
-        <Link className="hover:-translate-y-1 duration-100" href="/calender">
-          <span>Calander</span>
+        <Link
+          className={
+            "hover:-translate-y-1 duration-100 font-bold " +
+            `${
+              path == "/calender"
+                ? "text-white"
+                : "bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent"
+            }`
+          }
+          href="/calender"
+        >
+          <span>Calender</span>
         </Link>
-        <Link className="hover:-translate-y-1 duration-100" href="/sponsers">
+        <Link
+          className={
+            "hover:-translate-y-1 duration-100 font-bold " +
+            `${
+              path == "/sponsers"
+                ? "text-white"
+                : "bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent"
+            }`
+          }
+          href="/sponsers"
+        >
           <span>Sponsers</span>
         </Link>
-        <Link className="hover:-translate-y-1 duration-100" href="/team">
+        <Link
+          className={
+            "hover:-translate-y-1 duration-100 font-bold " +
+            `${
+              path == "/team"
+                ? "text-white"
+                : "bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent"
+            }`
+          }
+          href="/team"
+        >
           <span>Team</span>
         </Link>
       </div>
     </nav>
   ) : (
-    <nav className="h-20 flex justify-between bg-gradient-to-b from-black">
+    <nav className="h-20 flex justify-between bg-gradient-to-b from-secondry">
       <Link href="/">
         <img src="/diestaLogo.svg" alt="Logo" className="max-h-12 m-4" />
       </Link>
       <div
         className={
-          "flex flex-col justify-items-end h-max duration-150 " +
+          "flex flex-col justify-items-center h-max duration-150 " +
           `${
             isOpen
-              ? " bg-gradient-to-b from-primary via-tertiary to-quaternary from-black text-white"
+              ? " w-80 rounded-lg bg-gradient-to-b from-black  to-secondry"
               : ""
           } `
         }
@@ -76,21 +142,84 @@ const Navbar = () => {
           </svg>
         </button>
         {isOpen ? (
-          <div className="flex flex-col gap-4 mr-4 m-4">
-            <Link className="hover:translate-x-2 duration-100" href="/events">
-              <span>Events</span>
+          <div className="flex text-xl flex-col justify-items-center gap-4 mr-4 m-4">
+            <Link
+              className="hover:translate-x-2 duration-100 flex justify-between"
+              href="/"
+            >
+              <div className="font-bold bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent">
+                Home
+              </div>
+              {path == "/" ? (
+                <div className="w-4 content-center">
+                  <img src="/diestalogo.svg" alt="logo" />
+                </div>
+              ) : null}
             </Link>
-            <Link className="hover:translate-x-2 duration-100" href="/rulebook">
-              <span>Rulebook</span>
+            <Link
+              className="hover:translate-x-2 duration-100 flex justify-between"
+              href="/events"
+            >
+              <div className="font-bold bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent">
+                Events
+              </div>
+              {path == "/events" ? (
+                <div className="w-4 content-center">
+                  <img src="/diestalogo.svg" alt="logo" />
+                </div>
+              ) : null}
             </Link>
-            <Link className="hover:translate-x-2 duration-100" href="/calender">
-              <span>Calander</span>
+            <Link
+              className="hover:translate-x-2 duration-100 flex justify-between"
+              href="/rulebook"
+            >
+              <div className="font-bold bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent">
+                Rulebook
+              </div>
+              {path == "/rulebook" ? (
+                <div className="w-4 content-center">
+                  <img src="/diestalogo.svg" alt="logo" />
+                </div>
+              ) : null}
             </Link>
-            <Link className="hover:translate-x-2 duration-100" href="/sponsers">
-              <span>Sponsers</span>
+            <Link
+              className="hover:translate-x-2 duration-100 flex justify-between"
+              href="/calender"
+            >
+              <div className="font-bold bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent">
+                Calender
+              </div>
+              {path == "/calender" ? (
+                <div className="w-4 content-center">
+                  <img src="/diestalogo.svg" alt="logo" />
+                </div>
+              ) : null}
             </Link>
-            <Link className="hover:translate-x-2 duration-100" href="/team">
-              <span>Team</span>
+            <Link
+              className="hover:translate-x-2 duration-100 flex justify-between"
+              href="/sponsers"
+            >
+              <div className="font-bold bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent">
+                Sponsers
+              </div>
+              {path == "/sponsers" ? (
+                <div className="w-4 content-center">
+                  <img src="/diestalogo.svg" alt="logo" />
+                </div>
+              ) : null}
+            </Link>
+            <Link
+              className="hover:translate-x-2 duration-100 flex justify-between"
+              href="/team"
+            >
+              <div className="font-bold bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent">
+                Team
+              </div>
+              {path == "/team" ? (
+                <div className="w-4 content-center">
+                  <img src="/diestalogo.svg" alt="logo" />
+                </div>
+              ) : null}
             </Link>
           </div>
         ) : null}
