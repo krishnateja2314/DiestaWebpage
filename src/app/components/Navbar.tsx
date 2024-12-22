@@ -11,7 +11,7 @@ const Navbar = () => {
   const path = usePathname();
   console.log(path);
   return size.width > 640 ? (
-    <nav className="h-20 flex justify-between bg-gradient-to-b from-secondry ">
+    <nav className="h-20 z-10 flex justify-between bg-gradient-to-b from-secondry ">
       <Link className="hover:skew-x-12 duration-100" href="/">
         <img src="/diestaLogo.svg" alt="Logo" className="max-h-12 m-4" />
       </Link>
@@ -97,13 +97,13 @@ const Navbar = () => {
       </div>
     </nav>
   ) : (
-    <nav className="h-20 flex justify-between bg-gradient-to-b from-secondry">
-      <Link href="/">
+    <nav className="h-20 z-20 flex justify-between bg-gradient-to-b from-secondry">
+      <Link className="hover:skew-x-12 duration-100" href="/">
         <img src="/diestaLogo.svg" alt="Logo" className="max-h-12 m-4" />
       </Link>
       <div
         className={
-          "flex flex-col justify-items-center h-max duration-150 " +
+          "flex z-20 flex-col justify-items-center h-max duration-150 " +
           `${
             isOpen
               ? " w-80 rounded-lg bg-gradient-to-b from-black  to-secondry"
@@ -142,7 +142,7 @@ const Navbar = () => {
           </svg>
         </button>
         {isOpen ? (
-          <div className="flex text-xl flex-col justify-items-center gap-4 mr-4 m-4">
+          <div className=" flex text-xl flex-col justify-items-center gap-4 mr-4 m-4">
             <Link
               className="hover:translate-x-2 duration-100 flex justify-between"
               href="/"
