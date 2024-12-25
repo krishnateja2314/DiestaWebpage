@@ -72,19 +72,6 @@ const Navbar = () => {
           className={
             "hover:-translate-y-1 duration-100 font-bold " +
             `${
-              path == "/sponsers"
-                ? "text-white"
-                : "bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent"
-            }`
-          }
-          href="/sponsers"
-        >
-          <span>Sponsers</span>
-        </Link>
-        <Link
-          className={
-            "hover:-translate-y-1 duration-100 font-bold " +
-            `${
               path == "/team"
                 ? "text-white"
                 : "bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent"
@@ -190,19 +177,6 @@ const Navbar = () => {
                 Calender
               </div>
               {path == "/calender" ? (
-                <div className="w-4 content-center">
-                  <img src="/diestalogo.svg" alt="logo" />
-                </div>
-              ) : null}
-            </Link>
-            <Link
-              className="hover:translate-x-2 duration-100 flex justify-between"
-              href="/sponsers"
-            >
-              <div className="font-bold bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent">
-                Sponsers
-              </div>
-              {path == "/sponsers" ? (
                 <div className="w-4 content-center">
                   <img src="/diestalogo.svg" alt="logo" />
                 </div>
