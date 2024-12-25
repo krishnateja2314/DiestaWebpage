@@ -11,7 +11,7 @@ const Navbar = () => {
   const path = usePathname();
   console.log(path);
   return size.width > 640 ? (
-    <nav className="h-20 z-10 flex justify-between bg-gradient-to-b from-secondry ">
+    <nav className="h-20 z-10 fixed w-full flex justify-between bg-gradient-to-b from-secondry ">
       <Link className="hover:skew-x-12 duration-100" href="/">
         <img src="/diestaLogo.svg" alt="Logo" className="max-h-12 m-4" />
       </Link>
