@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="">
-      <div className="bg-gradient-to-t min-h-24 from-secondry text-lg max-md:text-base">
+    <footer className=" bottom-0 z-30 w-full">
+      <div className="shadow-lg bg-gradient-to-t min-h-24 from-secondry from-60% text-lg max-md:text-base">
         <span className="flex -z-10 mb-0 justify-center max-md:items-start">
           <Image
             className=" bg-center absolute opacity-15"
@@ -16,7 +16,7 @@ const Footer = () => {
         </span>
         <div className="flex max-md:flex-col max-md:items-center max-md:justify-center flex-row justify-between">
           <div className="text-center p-2 m-2 flex flex-col items-center">
-            <span className="bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent">
+            <span className=" bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent">
               Follow Us
             </span>
             <div className="p-2 ">
