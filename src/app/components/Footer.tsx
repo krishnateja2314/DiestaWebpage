@@ -1,59 +1,47 @@
-import React from "react";
-import Image from "next/image";
+import Link from 'next/link'
+import { Facebook, Twitter, Instagram, Mail } from 'lucide-react'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
 
-const Footer = () => {
+const socialLinks = [
+  
+  { name: 'Instagram', icon: Instagram, href: '#' },
+  { name: 'Mail', icon: Mail, href: '#' },
+]
+
+export default function Footer() {
   return (
-    <footer className=" bottom-0 z-30 w-full">
-      <div className="shadow-lg bg-gradient-to-t min-h-24 from-secondry from-60% text-lg max-md:text-base">
-        <span className="flex -z-10 mb-0 justify-center max-md:items-start">
-          <Image
-            className=" bg-center absolute opacity-15"
-            src="/diestaLogo.svg"
-            alt="Logo"
-            width={100}
-            height={100}
-          />
-        </span>
-        <div className="flex max-md:flex-col max-md:items-center max-md:justify-center flex-row justify-between">
-          <div className="text-center p-2 m-2 flex flex-col items-center">
-            <span className=" bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent">
-              Follow Us
-            </span>
-            <div className="p-2 ">
-              <a href="https://www.instagram.com/diesta_iith">
-                <Image
-                  className="m-2"
-                  src="/instagram.svg"
-                  alt="Instagram"
-                  width={25}
-                  height={25}
-                />
-              </a>
+    <footer className="bg-gray-900 text-gray-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid md:grid-cols-3 gap-8 items-center text-center">
+          <div>
+            <h3 className="text-xl font-bold text-purple-400 ">Diesta</h3>
+            <p className="mb-4">Experience the future of technology at Diesta, where innovation meets inspiration.</p>
+            <div className="flex space-x-4">
+              {socialLinks.map((link) => (
+                <Link key={link.name} href={link.href} className="text-gray-400 hover:text-purple-400">
+                  <link.icon className="h-6 w-6" />
+                  <span className="sr-only">{link.name}</span>
+                </Link>
+              ))}
             </div>
           </div>
-
-          <div className="text-center p-2 m-2">
-            <span className="bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent">
-              Location
-            </span>
-            <div>
-              <p>Indian Institute of Technology Hyderabad</p>
-              <p>Yeddumailaram, Telangana 502205</p>
-            </div>
+          <div>
+          <h3 className="text-xl font-bold text-purple-400 mb-4">Location</h3> 
+          <p className="mb-4">Indian Institute of Technology Hyderabad</p>
+          <p className="mb-4">Yeddumailaram, Telangana 502205</p>
           </div>
-          <div className="text-center p-2 m-2">
-            <span className="bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent">
-              Contact Us
-            </span>
-            <div>
-              <p>phone:</p>
-              <p>9100831304</p>
-            </div>
+          <div>
+          <h3 className="text-xl font-bold text-purple-400 mb-4">Phone:</h3> 
+          <p className='mb-4'>9100831304</p>
+            
           </div>
         </div>
+        {/* <div className="mt-8 pt-8 border-t text-xl border-gray-800 text-center">
+          <p>&copy; {new Date().getFullYear()} Diesta. All rights reserved.</p>
+        </div> */}
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
