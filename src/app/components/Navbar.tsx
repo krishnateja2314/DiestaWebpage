@@ -51,7 +51,9 @@ const Navbar = () => {
                 : "bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent"
             }`
           }
-          href="/rulebook"
+          href={"/rulebook.pdf"}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <span>Rulebook</span>
         </Link>
