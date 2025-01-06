@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { useWindowSize } from "react-use";
 import "chart.js/auto";
 
-const page = () => {
+const page = async () => {
   const size = useWindowSize();
   const Bar = dynamic(() => import("react-chartjs-2").then((mod) => mod.Bar), {
     ssr: false,
