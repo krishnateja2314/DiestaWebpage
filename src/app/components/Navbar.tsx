@@ -44,6 +44,19 @@ const Navbar = () => {
         </Link>
         <Link
           className={
+            "hover:-translate-y-1 duration-100 font-bold " +
+            `${
+              path == "/livescore"
+                ? "text-white"
+                : "bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent"
+            }`
+          }
+          href="/livescore"
+        >
+          <span>Live Score</span>
+        </Link>
+        <Link
+          className={
             "hover:-translate-y-1 duration-100 font-bold bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent"
           }
           href={"/rulebook.pdf"}
@@ -148,6 +161,19 @@ const Navbar = () => {
                 Events
               </div>
               {path == "/events" ? (
+                <div className="w-4 content-center">
+                  <img src="/diestalogo.svg" alt="logo" />
+                </div>
+              ) : null}
+            </Link>
+            <Link
+              className="hover:translate-x-2 duration-100 flex justify-between"
+              href="/livescore"
+            >
+              <div className="font-bold bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent">
+                Live Score
+              </div>
+              {path == "/livescore" ? (
                 <div className="w-4 content-center">
                   <img src="/diestalogo.svg" alt="logo" />
                 </div>
