@@ -44,12 +44,7 @@ const Navbar = () => {
         </Link>
         <Link
           className={
-            "hover:-translate-y-1 duration-100 font-bold " +
-            `${
-              path == "/rulebook"
-                ? "text-white"
-                : "bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent"
-            }`
+            "hover:-translate-y-1 duration-100 font-bold bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent"
           }
           href={"/rulebook.pdf"}
           target="_blank"
@@ -160,16 +155,13 @@ const Navbar = () => {
             </Link>
             <Link
               className="hover:translate-x-2 duration-100 flex justify-between"
-              href="/rulebook"
+              href={"/rulebook.pdf"}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <div className="font-bold bg-gradient-to-bl from-yellow-500 to-yellow-50 bg-clip-text text-transparent">
                 Rulebook
               </div>
-              {path == "/rulebook" ? (
-                <div className="w-4 content-center">
-                  <img src="/diestalogo.svg" alt="logo" />
-                </div>
-              ) : null}
             </Link>
             <Link
               className="hover:translate-x-2 duration-100 flex justify-between"
