@@ -1,25 +1,38 @@
 "use client";
 import React from "react";
 import dynamic from "next/dynamic";
+import { useWindowSize } from "react-use";
 import "chart.js/auto";
 
 const page = () => {
+  const size = useWindowSize();
   const Bar = dynamic(() => import("react-chartjs-2").then((mod) => mod.Bar), {
     ssr: false,
   });
   const Total = {
     labels: [
-      "MAE/Inter Disciplinary/Climate change/Heritage science",
-      "Civil/MSME/LA/Entrepreneurship and management",
-      "Chemical/Chemistry/Industrial chemistry/Design",
+      `MAE/ID/CC/Heritage science`,
+      "CE/MSME/LA/EM",
+      "CH/CHY/IC/Design",
       "CSE/MnC/Maths",
-      "EE/AI/IC design/Computational engineering",
-      "BME/Bio Technology/ES/EP/Physics",
+      "EE/AI/ICDT/COE",
+      "BME/BT/ES/EP/PHY",
     ],
     datasets: [
       {
         label: "Total",
-        data: [12, 19, 3, 5, 2, 3],
+        barThickness: `${size.width < 700 ? "15" : "30"}`,
+        minBarThickness: 2,
+        base: 0,
+        data: [650, 580, 925, 826, 120, 340],
+        hoverBackgroundColor: [
+          "rgba(255, 99, 132, 0.4)",
+          "rgba(54, 162, 235, 0.4)",
+          "rgba(255, 206, 86, 0.4)",
+          "rgba(75, 192, 192, 0.4)",
+          "rgba(153, 102, 255, 0.4)",
+          "rgba(255, 159, 64, 0.4)",
+        ],
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",
@@ -42,17 +55,27 @@ const page = () => {
   };
   const Cultural = {
     labels: [
-      "MAE/Inter Disciplinary/Climate change/Heritage science",
-      "Civil/MSME/LA/Entrepreneurship and management",
-      "Chemical/Chemistry/Industrial chemistry/Design",
+      "MAE/ID/CC/HS",
+      "CE/MSME/LA/EM",
+      "CH/CHY/IC/Design",
       "CSE/MnC/Maths",
-      "EE/AI/IC design/Computational engineering",
-      "BME/Bio Technology/ES/EP/Physics",
+      "EE/AI/ICDT/COE",
+      "BME/BT/ES/EP/PHY",
     ],
     datasets: [
       {
         label: "Cultural",
-        data: [12, 19, 3, 5, 2, 3],
+        barThickness: `${size.width < 700 ? "15" : "30"}`,
+        base: 0,
+        data: [650, 580, 925, 826, 120, 340],
+        hoverBackgroundColor: [
+          "rgba(255, 99, 132, 0.4)",
+          "rgba(54, 162, 235, 0.4)",
+          "rgba(255, 206, 86, 0.4)",
+          "rgba(75, 192, 192, 0.4)",
+          "rgba(153, 102, 255, 0.4)",
+          "rgba(255, 159, 64, 0.4)",
+        ],
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",
@@ -75,17 +98,28 @@ const page = () => {
   };
   const Sports = {
     labels: [
-      "MAE/Inter Disciplinary/Climate change/Heritage science",
-      "Civil/MSME/LA/Entrepreneurship and management",
-      "Chemical/Chemistry/Industrial chemistry/Design",
+      "MAE/ID/CC/Heritage science",
+      "CE/MSME/LA/EM",
+      "CH/CHY/IC/Design",
       "CSE/MnC/Maths",
-      "EE/AI/IC design/Computational engineering",
-      "BME/Bio Technology/ES/EP/Physics",
+      "EE/AI/ICDT/COE",
+      "BME/BT/ES/EP/PHY",
     ],
     datasets: [
       {
+        base: 0,
+        hoverBackgroundColor: [
+          "rgba(255, 99, 132, 0.4)",
+          "rgba(54, 162, 235, 0.4)",
+          "rgba(255, 206, 86, 0.4)",
+          "rgba(75, 192, 192, 0.4)",
+          "rgba(153, 102, 255, 0.4)",
+          "rgba(255, 159, 64, 0.4)",
+        ],
         label: "Sports",
-        data: [12, 19, 3, 5, 2, 3],
+        font: 5,
+        barThickness: `${size.width < 700 ? "15" : "30"}`,
+        data: [650, 580, 925, 826, 120, 340],
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",
@@ -108,10 +142,38 @@ const page = () => {
   };
   return (
     <div>
-      <div className="p-4 text-wrap w-5/6">
-        <Bar data={Total} />
-        <Bar data={Cultural} />
-        <Bar data={Sports} />
+      <div className=" flex flex-col pt-20 gap-y-40 p-4 text-wrap w-5/6">
+        <Bar
+          className="text-wrap"
+          data={Total}
+          options={{
+            indexAxis: "y",
+            scales: {
+              x: { grid: { display: false } },
+              y: { grid: { display: false } },
+            },
+          }}
+        />
+        <Bar
+          data={Cultural}
+          options={{
+            indexAxis: "y",
+            scales: {
+              x: { grid: { display: false } },
+              y: { grid: { display: false } },
+            },
+          }}
+        />
+        <Bar
+          data={Sports}
+          options={{
+            indexAxis: "y",
+            scales: {
+              x: { grid: { display: false } },
+              y: { grid: { display: false } },
+            },
+          }}
+        />
       </div>
     </div>
   );
