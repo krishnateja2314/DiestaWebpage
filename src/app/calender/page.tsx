@@ -24,7 +24,6 @@ const Page = () => {
   const handleDateChange = (date: Value) => {
     if (date instanceof Date) {
       setSelectedDate(date);
-      // onDateChange(date);
     }
   };
 
@@ -49,7 +48,7 @@ const Page = () => {
         />
       </div>
       <div className="absolute top-0 left-1/2 bottom-0 flex justify-center items-center text-center">
-        <div className="bg-white p-4 rounded-lg shadow-lg">
+        <div className="bg-white p-4 rounded-lg shadow-lg w-64">
           <h1 className="text-2xl font-bold text-black">
             {selectedDate.toLocaleDateString("en-GB", {
               day: "2-digit",
@@ -57,38 +56,36 @@ const Page = () => {
               year: "numeric",
             })}
           </h1>
-          <ul>
-            {data.filter(
-              (event) =>
-                event.date ==
-                selectedDate
-                  .toLocaleDateString("en-GB", {
-                    day: "2-digit",
-                    month: "short",
-                    year: "numeric",
-                  })
-                  .replace(" ", " ")
-            )
-              .map((event) => (
-                <div className="w-64 mx-auto my-0 text-center">
-                  <h2 className="text-black text-lg font-bold">{event.title}</h2>
-                  <p className="text-black text-lg">{event.description}</p>
-                </div>
-              ))}
-            {data.filter(
-              (event) =>
-                event.date ==
-                selectedDate
-                  .toLocaleDateString("en-GB", {
-                    day: "2-digit",
-                    month: "short",
-                    year: "numeric",
-                  })
-                  .replace(" ", " ")
-            ).length === 0 && (
-                <p className="text-black text-lg">No events for this day</p>
-              )}
-          </ul>
+          {data.filter(
+            (event) =>
+              event.date ==
+              selectedDate
+                .toLocaleDateString("en-GB", {
+                  day: "2-digit",
+                  month: "short",
+                  year: "numeric",
+                })
+                .replace(" ", " ")
+          )
+            .map((event) => (
+              <div className="mx-auto my-0 text-center">
+                <h2 className="text-black text-lg font-bold">{event.title}</h2>
+                <p className="text-black text-lg">{event.description}</p>
+              </div>
+            ))}
+          {data.filter(
+            (event) =>
+              event.date ==
+              selectedDate
+                .toLocaleDateString("en-GB", {
+                  day: "2-digit",
+                  month: "short",
+                  year: "numeric",
+                })
+                .replace(" ", " ")
+          ).length === 0 && (
+              <p className="text-black text-lg">No events for this day</p>
+            )}
         </div>
       </div>
     </div>

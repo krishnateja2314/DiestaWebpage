@@ -6,7 +6,7 @@
 
 /* Container Styling */
 .react-calendar {
-  width: 500px;
+  width: 600px;
   background: rgba(17, 17, 17, 0.26);
   border: none;
   font-family: Arial, sans-serif;
@@ -27,13 +27,13 @@
   gap: 7px;
 }
 .react-calendar__navigation button:hover {
-  background-color: #0f0f0f !important;
+  background-color: #ffffff !important;
 }
 
 .react-calendar__navigation button {
   background: none;
   border: none;
-  color: #6d6d6d;
+  /* color: #6d6d6d; */
   font-size: 16px;
   cursor: pointer;
 }
@@ -43,6 +43,14 @@
   font-weight: 600;
   color: #1e90ff;
   padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.react-calendar__tile--hasActive {
+  background-color: #1e90ff !important;
+}
+.react-calendar__navigation span:hover {
+  background-color: #dcdcdc !important;
 }
 
 /* Weekday Names Styling */
@@ -97,7 +105,7 @@
 
 /* Styling for Today’s Date */
 .react-calendar__tile--now {
-  background: #888 !important;
+  /* background: #888 !important; */
   color: #ffffff;
   border-radius: 12px; /* Square with rounded corners */
   border: 1.6px solid #ffffff !important; /* White border for today’s date */
@@ -117,14 +125,14 @@
 }
 
 /* Remove background hover effect */
-.react-calendar__tile:enabled:hover,
+/* .react-calendar__tile:enabled:hover,
 .react-calendar__tile:enabled:focus {
   background-color: #292727;
-}
+} */
 
-.react-calendar__navigation__label:hover {
+/* .react-calendar__navigation__label:hover {
   background-color: black;
-}
+} */
 
 /* Additional styling for event dot on calendar tile */
 .event-dot {
