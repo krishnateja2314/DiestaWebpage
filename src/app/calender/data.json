@@ -1,6 +1,23 @@
 [
-  { "date": "28 Jan 2025", "title": "Event 1" },
-  { "date": "29 Jan 2025", "title": "Event 2" },
-  { "date": "30 Jan 2025", "title": "Event 3" },
-  { "date": "31 Jan 2025", "title": "Event 4" }
+  {
+    "title": "Event 1",
+    "date": "01 Jan 2025",
+    "description": "Event 1 Description"
+
+  },
+  {
+    "title": "Event 2",
+    "date": "02 Jan 2025",
+    "description": "Event 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 DescriptionEvent 2 Description"
+  },
+  {
+    "title": "Event 3",
+    "date": "03 Jan 2025",
+    "description": "Event 3 Description"
+  },
+  {
+    "title": "Event 4",
+    "date": "04 Jan 2025",
+    "description": "Event 4 Description"
+  }
 ]

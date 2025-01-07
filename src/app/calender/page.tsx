@@ -44,27 +44,52 @@ const Page = () => {
           next2Label={null}
           tileContent={({ date, view }) =>
             view == "month" && hasEvent(date) &&
-            <div className="absolute w-2 h-2 bg-blue-300 translate-x-2.5 rounded-full"></div>
+            <div className="absolute w-2 h-2 bg-blue-300 rounded-full"></div>
           }
         />
       </div>
-      <div className="absolute top-0 left-1/2 bottom-0 flex justify-center items-center">
-        <Calendar
-          formatMonthYear={(locale, date) =>
-            date.toLocaleString(locale, { month: "long" })
-          }
-          onChange={handleDateChange}
-          value={selectedDate}
-          showNavigation={true}
-          prevLabel={null}
-          nextLabel={null}
-          prev2Label={null}
-          next2Label={null}
-          tileContent={({ date, view }) =>
-            view == "month" && hasEvent(date) &&
-            <div className="absolute w-2 h-2 bg-blue-300 translate-x-2.5 rounded-full"></div>
-          }
-        />
+      <div className="absolute top-0 left-1/2 bottom-0 flex justify-center items-center text-center">
+        <div className="bg-white p-4 rounded-lg shadow-lg">
+          <h1 className="text-2xl font-bold text-black">
+            {selectedDate.toLocaleDateString("en-GB", {
+              day: "2-digit",
+              month: "short",
+              year: "numeric",
+            })}
+          </h1>
+          <ul>
+            {data.filter(
+              (event) =>
+                event.date ==
+                selectedDate
+                  .toLocaleDateString("en-GB", {
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric",
+                  })
+                  .replace(" ", " ")
+            )
+              .map((event) => (
+                <div className="w-64 mx-auto my-0 text-center">
+                  <h2 className="text-black text-lg font-bold">{event.title}</h2>
+                  <p className="text-black text-lg">{event.description}</p>
+                </div>
+              ))}
+            {data.filter(
+              (event) =>
+                event.date ==
+                selectedDate
+                  .toLocaleDateString("en-GB", {
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric",
+                  })
+                  .replace(" ", " ")
+            ).length === 0 && (
+                <p className="text-black text-lg">No events for this day</p>
+              )}
+          </ul>
+        </div>
       </div>
     </div>
   );
