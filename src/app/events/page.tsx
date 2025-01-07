@@ -1,7 +1,77 @@
+"use client";
 import React from "react";
+import Section from "../components/Section";
+import { motion } from "framer-motion";
+import { image } from "framer-motion/client";
+
+const Events = [
+  {
+    title: "Opening Ceremony",
+    date: "17th january, 2025",
+    discription:
+      "The ceremony will be graced by the presence of our esteemed Chief Guest, Dr.B S Murty.",
+    image: "/diestaLogo.svg",
+  },
+  {
+    title: "Battle of Bands",
+    date: "25th january, 2025",
+    discription:
+      "Battle of Bands is a music competition where bands from different collages participate.",
+    image: "/diestaLogo.svg",
+  },
+  {
+    title: "Dance Performance",
+    date: "24th january, 2025",
+    discription:
+      "Dance Performance is a dance competition where teams from all the groups participate.",
+    image: "/diestaLogo.svg",
+  },
+  {
+    title: "Otaku Cosplay",
+    date: "23rd january, 2025",
+    discription:
+      "Otaku Cosplay is a cosplay competition where participants dress up as their favorite anime characters.",
+    image: "/diestaLogo.svg",
+  },
+  {
+    title: "DJ Night",
+    date: "26th january, 2025",
+    discription:
+      "DJ Night is a music event where participants can enjoy music and dance.",
+    image: "/diestaLogo.svg",
+  },
+  {
+    title: "Closing Ceremony",
+    date: "26th january, 2025",
+    discription:
+      "All the prize winners will be felicitated during the ceremony and the fest will be concluded with a grand celebration.",
+    image: "/closing.JPG",
+  },
+];
 
 const page = () => {
-  return <div>events</div>;
+  return (
+    <div className="pt-24 flex flex-col gap-14 items-center">
+      {Events.map((event) => (
+        <div className="bg-black w-4/5 rounded-3xl">
+          <Section title={event.title} id={event.title} key={event.title}>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="flex items-center"
+            >
+              <div className="flex-row ">
+                <p>{event.discription}</p>
+                <p className="mt-5 text-purple-400">ON {event.date}.</p>
+              </div>
+              <img className="w-1/3 rounded-3xl" src={event.image} alt="" />
+            </motion.div>
+          </Section>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default page;

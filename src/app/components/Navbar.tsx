@@ -11,6 +11,7 @@ const navItems = [
   { name: "Live Score", href: "/livescore" },
   { name: "Rulebook", href: "/rulebook.pdf" },
   { name: "Calender", href: "/calender" },
+  { name: "Team", href: "/team" },
 ];
 
 export default function Header() {
