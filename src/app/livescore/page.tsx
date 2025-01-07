@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { useWindowSize } from "react-use";
 import "chart.js/auto";
 
-const page = async () => {
+const page = () => {
   const size = useWindowSize();
   const Bar = dynamic(() => import("react-chartjs-2").then((mod) => mod.Bar), {
     ssr: false,
@@ -142,7 +142,7 @@ const page = async () => {
   };
   return (
     <div>
-      <div className=" flex flex-col pt-20 gap-y-40 p-4 text-wrap w-5/6">
+      <div className=" bg-black w-full flex flex-col pt-28 gap-y-40 p-4 text-wrap w-5/6">
         <Bar
           className="text-wrap"
           data={Total}
