@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Event 1",
+    "date": "01 Jan 2025",
+    "description": "Event 1 Description"
+
+  },
+  {
+    "title": "Event 2",
+    "date": "02 Jan 2025",
+    "description": "Event 2 Description"
+  },
+  {
+    "title": "Event 3",
+    "date": "03 Jan 2025",
+    "description": "Event 3 Description"
+  },
+  {
+    "title": "Event 4",
+    "date": "04 Jan 2025",
+    "description": "Event 4 Description"
+  }
+]
