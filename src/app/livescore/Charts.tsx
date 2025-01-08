@@ -1,15 +1,16 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import React from "react";
 import dynamic from "next/dynamic";
 import { useWindowSize } from "react-use";
 import "chart.js/auto";
 import { data } from "framer-motion/client";
-interface Data {
+interface ChartProps {
   total: number[];
   cultural: number[];
   sports: number[];
 }
-const charts = ({ total, cultural, sports }: Data) => {
+const charts = ({ total, cultural, sports }: ChartProps) => {
   const size = useWindowSize();
   const Bar = dynamic(() => import("react-chartjs-2").then((mod) => mod.Bar), {
     ssr: false,
