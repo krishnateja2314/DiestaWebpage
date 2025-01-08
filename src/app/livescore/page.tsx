@@ -11,12 +11,13 @@ const page = () => {
   });
   const Total = {
     labels: [
-      `MAE/ID/CC/Heritage science`,
+      `MAE/ID/CC/HS`,
       "CE/MSME/LA/EM",
       "CH/CHY/IC/Design",
       "CSE/MnC/Maths",
       "EE/AI/ICDT/COE",
       "BME/BT/ES/EP/PHY",
+      "Staff",
     ],
     datasets: [
       {
@@ -24,7 +25,7 @@ const page = () => {
         barThickness: `${size.width < 700 ? "15" : "30"}`,
         minBarThickness: 2,
         base: 0,
-        data: [650, 580, 925, 826, 120, 340],
+        data: [650, 580, 925, 826, 120, 340, 400],
         hoverBackgroundColor: [
           "rgba(255, 99, 132, 0.4)",
           "rgba(54, 162, 235, 0.4)",
@@ -61,13 +62,14 @@ const page = () => {
       "CSE/MnC/Maths",
       "EE/AI/ICDT/COE",
       "BME/BT/ES/EP/PHY",
+      "Staff",
     ],
     datasets: [
       {
         label: "Cultural",
         barThickness: `${size.width < 700 ? "15" : "30"}`,
         base: 0,
-        data: [650, 580, 925, 826, 120, 340],
+        data: [650, 580, 925, 826, 120, 340, 400],
         hoverBackgroundColor: [
           "rgba(255, 99, 132, 0.4)",
           "rgba(54, 162, 235, 0.4)",
@@ -98,12 +100,13 @@ const page = () => {
   };
   const Sports = {
     labels: [
-      "MAE/ID/CC/Heritage science",
+      "MAE/ID/CC/HS",
       "CE/MSME/LA/EM",
       "CH/CHY/IC/Design",
       "CSE/MnC/Maths",
       "EE/AI/ICDT/COE",
       "BME/BT/ES/EP/PHY",
+      "Staff",
     ],
     datasets: [
       {
@@ -119,7 +122,7 @@ const page = () => {
         label: "Sports",
         font: 5,
         barThickness: `${size.width < 700 ? "15" : "30"}`,
-        data: [650, 580, 925, 826, 120, 340],
+        data: [650, 580, 925, 826, 120, 340, 400],
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",
@@ -144,8 +147,9 @@ const page = () => {
   return (
     <div>
       <div className="w-full justify-items-center flex flex-col pt-28 gap-y-40 p-4 text-wrap w-5/6">
-        {Data.map((data) => (
+        {Data.map((data, key) => (
           <Bar
+            key={key}
             className="w-4/5 bg-black text-wrap"
             data={data}
             options={{

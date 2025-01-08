@@ -52,8 +52,8 @@ const Events = [
 const page = () => {
   return (
     <div className="pt-24 flex flex-col gap-14 items-center">
-      {Events.map((event) => (
-        <div className="bg-black w-4/5 rounded-3xl">
+      {Events.map((event, key) => (
+        <div key={key} className="bg-black w-4/5 rounded-3xl">
           <Section title={event.title} id={event.title} key={event.title}>
             <motion.div
               initial={{ opacity: 0, x: -20 }}
