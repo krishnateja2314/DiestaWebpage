@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react';
 import TeamNavbar from '../components/Team_navbar'
 import { useRouter } from 'next/navigation'
+import { AnimatePresence } from 'framer-motion'
 
 // DiestaLogoBorder component
 
@@ -255,10 +256,10 @@ const TeamSection: React.FC<TeamSectionProps> = ({ title, members, size = 'md', 
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: index * 0.1 }}
               >
-                <h3 className="text-xl md:text-xl font-semibold md:mb-2 mb-1 text-white bg-gradient-to-r from-violet-400 to-fuchsia-500 bg-clip-text text-transparent">
+                <h3 className="text-lg md:text-xl  font-semibold mb-2 text-white bg-gradient-to-r from-violet-400 to-fuchsia-500 bg-clip-text text-transparent">
                   {member.name}
                 </h3>
-                <p className="text-gray-400 md:text-[18px] text-[14px]">{member.role}</p>
+                <p className="text-gray-400 md:text-lg text-sm">{member.role}</p>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -272,8 +273,34 @@ const TeamSection: React.FC<TeamSectionProps> = ({ title, members, size = 'md', 
 
 const TeamPage: React.FC = () => {
 
-  // Typing animation of main title
+  // Mobile navbar
+  const [menuOpen, setMenuOpen] = useState(false);
+  const handleMenu = () => setMenuOpen(!menuOpen);
+  const handleClick = (href: string) => {
+    const element = document.querySelector(href)
+    if (element) {
+      const yOffset = -60
+      const y = element.getBoundingClientRect().top + window.scrollY + yOffset
+      window.scrollTo({ top: y, behavior: 'smooth' })
+    }
+    setMenuOpen(false)
+  }
 
+  interface NavItem {
+    text: string;
+    href: string;
+  }
+
+  const menuItems: NavItem[] = [
+    { text: 'Events', href: '#events' },
+    { text: 'Hospitality', href: '#hospitality' },
+    { text: 'PR', href: '#pr' },
+    { text: 'Multimedia', href: '#multimedia' },
+    { text: 'Web', href: '#web' },
+  ]
+
+  // Typing animation of main title
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [displayedText, setDisplayedText] = useState("");
   const fullText = "TEAM DIESTA";
   const typingSpeed = 200;
@@ -362,23 +389,23 @@ const TeamPage: React.FC = () => {
       { name: "Kalyan", role: "Event Coordinator", imageUrl: './IMG_20240718_122818 - Nenavath Kalyan(2).webp' },
       { name: "Bonigi Srisanth ", role: "Event Coordinator", imageUrl: './IMG_20241126_101036 - Bonigi Srisanth.webp' },
       { name: "K Jaswanth ", role: "Event Coordinator", imageUrl: './IMG_20241202_081338 - Kakumanu Jaswanth.webp' },
-      { name: "Shiva chethan", role: "Event Coordinator", imageUrl: './img inter iit - Shiva Chethan Halamane(1).webp' },
+      { name: "Shiva Chethan", role: "Event Coordinator", imageUrl: './img inter iit - Shiva Chethan Halamane(1).webp' },
       { name: "Renu Shri", role: "Event Coordinator", imageUrl: './IMG_2508 - Aare Renu Shri.webp' }
     ],
     hospitalityHeads: [
       { name: "Abhinay", role: "Hospitality Head", imageUrl: './IMG-20241124-WA0053 - Dasari Abhinayshashanth.webp' },
       { name: "Jatin Choudary ", role: "Hospitality Head", imageUrl: './Jatin.webp' },
-      { name: "Rishi kasturi ", role: "Hospitality Head", imageUrl: './Sai_Rishi.webp' }
+      { name: "Rishi Kasturi ", role: "Hospitality Head", imageUrl: './Sai_Rishi.webp' }
     ],
     hospitalityCoordinators: [
-      { name: "Mokshith kumar", role: "Hospitality Coordinator", imageUrl: './IMG_20231021_132503_565 - Bonda Mokshith Kumar.webp' },
-      { name: "Anvesh chandra ", role: "Hospitality Coordinator", imageUrl: './IMG_20240806_182715_166 - Anveshchandra Bavikadi.webp' },
-      { name: "Jagdeesh ", role: "Hospitality Coordinator", imageUrl: './1707648307618 - Kodadala Jagadeesh(1).webp' },
+      { name: "Mokshith Kumar", role: "Hospitality Coordinator", imageUrl: './IMG_20231021_132503_565 - Bonda Mokshith Kumar.webp' },
+      { name: "Anvesh Chandra ", role: "Hospitality Coordinator", imageUrl: './IMG_20240806_182715_166 - Anveshchandra Bavikadi.webp' },
+      { name: "Jagadeesh ", role: "Hospitality Coordinator", imageUrl: './1707648307618 - Kodadala Jagadeesh(1).webp' },
       { name: "Dinesh ", role: "Hospitality Coordinator", imageUrl: './photo.pdf.... - Chavan Dinesh Karthik(1).webp' },
       { name: "Karthikeya ", role: "Hospitality Coordinator", imageUrl: './IMG_0163 - Mahenderkar Karthikeya.webp' },
-      { name: "Rahul porika ", role: "Hospitality Coordinator", imageUrl: './IMG_2605 - Rahul Porika.webp' },
-      { name: "Adarsh patel ", role: "Hospitality Coordinator", imageUrl: './IMG_20241125_112634 - Adarsh Patel.webp' },
-      { name: "Nikhil rajpoot ", role: "Hospitality Coordinator", imageUrl: './IMG_20241202_160810 - Nikhil Rajpoot.webp' },
+      { name: "Rahul Porika ", role: "Hospitality Coordinator", imageUrl: './IMG_2605 - Rahul Porika.webp' },
+      { name: "Adarsh Patel ", role: "Hospitality Coordinator", imageUrl: './IMG_20241125_112634 - Adarsh Patel.webp' },
+      { name: "Nikhil Rajpoot ", role: "Hospitality Coordinator", imageUrl: './IMG_20241202_160810 - Nikhil Rajpoot.webp' },
       { name: "Harsha vardhan ", role: "Hospitality Coordinator", imageUrl: './295ed159-52cd-4b3a-9c93-997e1a614a1f - Harsha Vardhan.webp' },
       { name: "Yasaswi reddy  ", role: "Hospitality Coordinator", imageUrl: './IMG_20241205_134920_292 - Gabbireddy Yasaswi Reddy.webp' },
       { name: "Tejaswi", role: "Hospitality Coordinator", imageUrl: './IMG-20240616-WA0137 - Kadali Tejaswi.webp' },
@@ -426,26 +453,29 @@ const TeamPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#1A1A1D] px-4 py-12 relative overflow-hidden">
       <div className="flex items-center justify-center md:m-9">
-        <motion.h1
-          className="md:text-6xl text-[39px] font-bold p-2 bg-gradient-to-r to-pink-600 from-pink-600 via-blue-600 inline-block text-transparent bg-clip-text"
-          animate={{
-            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-          }}
-          transition={{
-            duration: 10,
-            ease: "linear",
-            repeat: Infinity,
-          }}
-          style={{
-            backgroundSize: "200% 200%",
-          }}
-        >
-          {displayedText}
-          <span
-            className={`inline-block w-0.5 md:h-12 h-8 ml-1 bg-gradient-to-b from-pink-600 to-blue-600 ${showCursor ? 'opacity-100' : 'opacity-0'}`}
-            style={{ transition: 'opacity 0.1s' }}
-          ></span>
-        </motion.h1>
+        <button onClick={handleMenu} aria-label={menuOpen ? 'Close menu' : 'Open menu'}>
+          <motion.h1
+            className="md:text-6xl text-[42px] font-bold p-2 bg-gradient-to-r to-pink-600 from-pink-600 via-blue-600 inline-block text-transparent bg-clip-text md:mt-4 mt-12"
+            animate={{
+              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+            }}
+            transition={{
+              duration: 10,
+              ease: "linear",
+              repeat: Infinity,
+            }}
+            style={{
+              backgroundSize: "200% 200%",
+            }}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {displayedText}
+            <span
+              className={`inline-block w-0.5 md:h-12 h-8 ml-1 bg-gradient-to-b from-pink-600 to-blue-600 ${showCursor ? 'opacity-100' : 'opacity-0'}`}
+              style={{ transition: 'opacity 0.1s' }}
+            ></span>
+          </motion.h1>
+        </button>
       </div>
       <button
         onClick={scrollToTop}
@@ -461,8 +491,79 @@ const TeamPage: React.FC = () => {
           />
         </div>
       </button>
-      <TeamNavbar/>
-      <TeamSection members={teams.overallCoordinators} size="lg" /> 
+      <TeamNavbar />
+      <div className='md:hidden'>
+        <nav className="">
+          <AnimatePresence>
+            {menuOpen && (
+              <motion.div
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className="fixed top-0 right-0 w-64 h-screen bg-black bg-opacity-20 backdrop-filter backdrop-blur-lg z-50 shadow-2xl rounded-tl-3xl"
+              >
+                <button
+                  onClick={() => setMenuOpen(false)}
+                  className="absolute top-4 hover:text-purple-500 right-4 text-white text-2xl p-2 rounded-full"
+                  aria-label="Close Menu"
+                >
+                  ✖
+                </button>
+                <motion.ul
+                  className='flex flex-col justify-center h-full px-8 space-y-6'
+                  initial="closed"
+                  animate="open"
+                  exit="closed"
+                  variants={{
+                    open: {
+                      transition: { staggerChildren: 0.07, delayChildren: 0.2 }
+                    },
+                    closed: {
+                      transition: { staggerChildren: 0.05, staggerDirection: -1 }
+                    }
+                  }}
+                >
+                  {menuItems.map((item) => (
+                    <motion.li
+                      key={item.text}
+                      variants={{
+                        open: {
+                          y: 0,
+                          opacity: 1,
+                          transition: {
+                            y: { stiffness: 1000, velocity: -100 }
+                          }
+                        },
+                        closed: {
+                          y: 50,
+                          opacity: 0,
+                          transition: {
+                            y: { stiffness: 1000 }
+                          }
+                        }
+                      }}
+                    >
+                      <a
+                        href={item.href}
+                        onClick={(e) => {
+                          e.preventDefault()
+                          handleClick(item.href)
+                        }}
+                        className={`text-[24px] font-semibold transition-colors duration-300 inline-block hover:text-purple-500 text-white
+                              }`}
+                      >
+                        {item.text}
+                      </a>
+                    </motion.li>
+                  ))}
+                </motion.ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </nav>
+      </div>
+      <TeamSection members={teams.overallCoordinators} size="lg" />
       <DiestaLogoBorder title="EVENTS" />
       <TeamSection id='events' members={teams.eventHeads} size="md" />
       <TeamSection members={teams.eventCoordinators} size="sm" />

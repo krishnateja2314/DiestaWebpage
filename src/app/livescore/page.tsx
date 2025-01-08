@@ -140,40 +140,23 @@ const page = () => {
       },
     ],
   };
+  const Data = [Total, Cultural, Sports];
   return (
     <div>
-      <div className=" flex flex-col pt-20 gap-y-40 p-4 text-wrap w-5/6">
-        <Bar
-          className="text-wrap"
-          data={Total}
-          options={{
-            indexAxis: "y",
-            scales: {
-              x: { grid: { display: false } },
-              y: { grid: { display: false } },
-            },
-          }}
-        />
-        <Bar
-          data={Cultural}
-          options={{
-            indexAxis: "y",
-            scales: {
-              x: { grid: { display: false } },
-              y: { grid: { display: false } },
-            },
-          }}
-        />
-        <Bar
-          data={Sports}
-          options={{
-            indexAxis: "y",
-            scales: {
-              x: { grid: { display: false } },
-              y: { grid: { display: false } },
-            },
-          }}
-        />
+      <div className="w-full justify-items-center flex flex-col pt-28 gap-y-40 p-4 text-wrap w-5/6">
+        {Data.map((data) => (
+          <Bar
+            className="w-4/5 bg-black text-wrap"
+            data={data}
+            options={{
+              indexAxis: "y",
+              scales: {
+                x: { grid: { display: false } },
+                y: { grid: { display: false } },
+              },
+            }}
+          />
+        ))}
       </div>
     </div>
   );
