@@ -4,7 +4,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 import { useWindowSize } from "react-use";
 import "chart.js/auto";
-import { data } from "framer-motion/client";
+
 interface ChartProps {
   total: number[];
   cultural: number[];
@@ -15,6 +15,7 @@ const charts = ({ total, cultural, sports }: ChartProps) => {
   const Bar = dynamic(() => import("react-chartjs-2").then((mod) => mod.Bar), {
     ssr: false,
   });
+  console.log(cultural);
   const Total = {
     labels: [
       `MAE/ID/CC/HS`,
@@ -39,6 +40,7 @@ const charts = ({ total, cultural, sports }: ChartProps) => {
           "rgba(75, 192, 192, 0.4)",
           "rgba(153, 102, 255, 0.4)",
           "rgba(255, 159, 64, 0.4)",
+          "rgba(255, 99, 132, 0.4)",
         ],
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
@@ -47,6 +49,7 @@ const charts = ({ total, cultural, sports }: ChartProps) => {
           "rgba(75, 192, 192, 0.2)",
           "rgba(153, 102, 255, 0.2)",
           "rgba(255, 159, 64, 0.2)",
+          "rgba(255, 99, 132, 0.2)",
         ],
         borderColor: [
           "rgba(255, 99, 132, 1)",
@@ -55,6 +58,7 @@ const charts = ({ total, cultural, sports }: ChartProps) => {
           "rgba(75, 192, 192, 1)",
           "rgba(153, 102, 255, 1)",
           "rgba(255, 159, 64, 1)",
+          "rgba(255, 99, 132, 1)",
         ],
         borderWidth: 1,
       },
@@ -70,9 +74,9 @@ const charts = ({ total, cultural, sports }: ChartProps) => {
       "BME/BT/ES/EP/PHY",
       "Staff",
     ],
-    data: cultural,
     datasets: [
       {
+        data: cultural,
         label: "Cultural",
         barThickness: `${size.width < 700 ? "15" : "30"}`,
         base: 0,
@@ -83,6 +87,7 @@ const charts = ({ total, cultural, sports }: ChartProps) => {
           "rgba(75, 192, 192, 0.4)",
           "rgba(153, 102, 255, 0.4)",
           "rgba(255, 159, 64, 0.4)",
+          "rgba(255, 99, 132, 0.4)",
         ],
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
@@ -91,6 +96,7 @@ const charts = ({ total, cultural, sports }: ChartProps) => {
           "rgba(75, 192, 192, 0.2)",
           "rgba(153, 102, 255, 0.2)",
           "rgba(255, 159, 64, 0.2)",
+          "rgba(255, 99, 132, 0.2)",
         ],
         borderColor: [
           "rgba(255, 99, 132, 1)",
@@ -99,6 +105,7 @@ const charts = ({ total, cultural, sports }: ChartProps) => {
           "rgba(75, 192, 192, 1)",
           "rgba(153, 102, 255, 1)",
           "rgba(255, 159, 64, 1)",
+          "rgba(255, 99, 132, 1)",
         ],
         borderWidth: 1,
       },
@@ -114,9 +121,9 @@ const charts = ({ total, cultural, sports }: ChartProps) => {
       "BME/BT/ES/EP/PHY",
       "Staff",
     ],
-    data: sports,
     datasets: [
       {
+        data: sports,
         base: 0,
         hoverBackgroundColor: [
           "rgba(255, 99, 132, 0.4)",
@@ -125,6 +132,7 @@ const charts = ({ total, cultural, sports }: ChartProps) => {
           "rgba(75, 192, 192, 0.4)",
           "rgba(153, 102, 255, 0.4)",
           "rgba(255, 159, 64, 0.4)",
+          "rgba(255, 99, 132, 0.4)",
         ],
         label: "Sports",
         font: 5,
@@ -136,6 +144,7 @@ const charts = ({ total, cultural, sports }: ChartProps) => {
           "rgba(75, 192, 192, 0.2)",
           "rgba(153, 102, 255, 0.2)",
           "rgba(255, 159, 64, 0.2)",
+          "rgba(255, 99, 132, 0.2)",
         ],
         borderColor: [
           "rgba(255, 99, 132, 1)",
@@ -144,6 +153,7 @@ const charts = ({ total, cultural, sports }: ChartProps) => {
           "rgba(75, 192, 192, 1)",
           "rgba(153, 102, 255, 1)",
           "rgba(255, 159, 64, 1)",
+          "rgba(255, 99, 132, 1)",
         ],
         borderWidth: 1,
       },
@@ -153,7 +163,10 @@ const charts = ({ total, cultural, sports }: ChartProps) => {
   return (
     <div>
       <div className="w-full justify-items-center flex flex-col pt-28 gap-y-40 p-4 text-wrap w-5/6">
-        {Data.map((data, key) => (
+        {Data.map((data, key) => {
+        
+          return(
+          
           <Bar
             key={key}
             className="w-4/5 bg-black text-wrap"
@@ -166,7 +179,7 @@ const charts = ({ total, cultural, sports }: ChartProps) => {
               },
             }}
           />
-        ))}
+        )})}
       </div>
     </div>
   );
