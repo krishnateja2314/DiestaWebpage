@@ -4,7 +4,11 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 const socialLinks = [
-  { name: "Instagram", icon: Instagram, href: "#" },
+  {
+    name: "Instagram",
+    icon: Instagram,
+    href: "https://www.instagram.com/diesta_iith/",
+  },
   { name: "Mail", icon: Mail, href: "#" },
 ];
 
@@ -16,8 +20,8 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold text-purple-400 ">Diesta</h3>
             <p className="mb-4">
-              Experience the future of technology at Diesta, where innovation
-              meets inspiration.
+              Experience the interdepartmental sports and cultural fest at
+              Diesta, where innovation meets inspiration.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((link) => (
@@ -42,9 +46,6 @@ export default function Footer() {
             <p className="mb-4">9100831304</p>
           </div>
         </div>
-        {/* <div className="mt-8 pt-8 border-t text-xl border-gray-800 text-center">
-          <p>&copy; {new Date().getFullYear()} Diesta. All rights reserved.</p>
-        </div> */}
       </div>
     </footer>
   );

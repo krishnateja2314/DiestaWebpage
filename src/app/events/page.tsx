@@ -10,7 +10,7 @@ const Events = [
     date: "17th january, 2025",
     discription:
       "The ceremony will be graced by the presence of our esteemed Chief Guest, Dr.B S Murty.",
-    image: "/diestaLogo.svg",
+    image: "opeaning.JPG",
   },
   {
     title: "Battle of Bands",
@@ -24,7 +24,7 @@ const Events = [
     date: "24th january, 2025",
     discription:
       "Dance Performance is a dance competition where teams from all the groups participate.",
-    image: "/diestaLogo.svg",
+    image: "/Dance.JPG",
   },
   {
     title: "Otaku Cosplay",
@@ -51,7 +51,7 @@ const Events = [
 
 const page = () => {
   return (
-    <div className="pt-24 flex flex-col gap-14 items-center">
+    <div className="pt-24 text-center flex flex-col gap-14 items-center">
       {Events.map((event, key) => (
         <div key={key} className="bg-black w-4/5 rounded-3xl">
           <Section title={event.title} id={event.title} key={event.title}>
@@ -59,13 +59,17 @@ const page = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="flex items-center"
+              className="flex gap-4 items-center max-md:flex-col"
             >
+              <img
+                className="w-1/3 max-md:w-10/12 rounded-3xl"
+                src={event.image}
+                alt=""
+              />
               <div className="flex-row ">
                 <p>{event.discription}</p>
                 <p className="mt-5 text-purple-400">ON {event.date}.</p>
               </div>
-              <img className="w-1/3 rounded-3xl" src={event.image} alt="" />
             </motion.div>
           </Section>
         </div>
