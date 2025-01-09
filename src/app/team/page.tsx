@@ -412,7 +412,7 @@ const TeamPage: React.FC = () => {
       { name: "Pranav ", role: "Event Coordinator", imageUrl: './20241129_011145 - Pranav Devara.webp' },
       { name: "Bhavya Kumari", role: "Event Coordinator", imageUrl: './IMG_20230907_155610 - Meka Bhavya Kumari.webp' },
       { name: "Meenakshi", role: "Event Coordinator", imageUrl: './Screenshot_2024-11-26-10-37-53-89_92460851df6f172a4592fca41cc2d2e6 - Kagita Meenakshi(2).webp' },
-      { name: "Kalyan", role: "Event Coordinator", imageUrl: './IMG_20240718_122818 - Nenavath Kalyan(2).webp' },
+      { name: "Kalyan", role: "Event Coordinator", imageUrl: './Kalyan.webp' },
       { name: "Bonigi Srisanth ", role: "Event Coordinator", imageUrl: './IMG_20241126_101036 - Bonigi Srisanth.webp' },
       { name: "K Jaswanth ", role: "Event Coordinator", imageUrl: './IMG_20241202_081338 - Kakumanu Jaswanth.webp' },
       { name: "Shiva Chethan", role: "Event Coordinator", imageUrl: './img inter iit - Shiva Chethan Halamane(1).webp' },
@@ -427,7 +427,7 @@ const TeamPage: React.FC = () => {
       { name: "Mokshith Kumar", role: "Hospitality Coordinator", imageUrl: './IMG_20231021_132503_565 - Bonda Mokshith Kumar.webp' },
       { name: "Anvesh Chandra ", role: "Hospitality Coordinator", imageUrl: './IMG_20240806_182715_166 - Anveshchandra Bavikadi.webp' },
       { name: "Jagadeesh ", role: "Hospitality Coordinator", imageUrl: './1707648307618 - Kodadala Jagadeesh(1).webp' },
-      { name: "Dinesh ", role: "Hospitality Coordinator", imageUrl: './photo.pdf.... - Chavan Dinesh Karthik(1).webp' },
+      { name: "Dinesh ", role: "Hospitality Coordinator", imageUrl: './Dinesh.webp' },
       { name: "Karthikeya ", role: "Hospitality Coordinator", imageUrl: './IMG_0163 - Mahenderkar Karthikeya.webp' },
       { name: "Rahul Porika ", role: "Hospitality Coordinator", imageUrl: './IMG_2605 - Rahul Porika.webp' },
       { name: "Adarsh Patel ", role: "Hospitality Coordinator", imageUrl: './IMG_20241125_112634 - Adarsh Patel.webp' },
@@ -608,7 +608,7 @@ const TeamPage: React.FC = () => {
               >
                 <button
                   onClick={() => setMenuOpen(false)}
-                  className="absolute top-4 hover:text-purple-500 right-4 text-white text-2xl p-2 rounded-full"
+                  className="absolute top-4 right-4 text-2xl p-2 rounded-full"
                   aria-label="Close Menu"
                 >
                   ✖
@@ -671,11 +671,7 @@ const TeamPage: React.FC = () => {
       <TeamSection id="events" members={teams.eventHeads} size="md" />
       <TeamSection members={teams.eventCoordinators} size="sm" />
       <DiestaLogoBorder title="HOSPITALITY" />
-      <TeamSection
-        id="hospitality"
-        members={teams.hospitalityHeads}
-        size="md"
-      />
+      <TeamSection id="hospitality" members={teams.hospitalityHeads} size="md" />
       <TeamSection members={teams.hospitalityCoordinators} size="sm" />
       <DiestaLogoBorder title="PR" />
       <TeamSection id="pr" members={teams.prHeads} size="md" />
