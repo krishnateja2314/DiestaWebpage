@@ -15,25 +15,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         });
         const sheets = google.sheets({ version: "v4", auth });
         
-        
-        const data = await sheets.spreadsheets.values.get({
-            spreadsheetId: process.env.Google_Sheet_Id_score,
-            range: "sheet1!A2:A2",
-        });
         const [overall, culti, sports] = await Promise.all([
             sheets.spreadsheets.values.get({
                 spreadsheetId: process.env.Google_Sheet_Id_score,
-                range: "sheet1!B2:B8",
+                range: "Overall!B2:B8",
             }),
             sheets.spreadsheets.values.get({
                 spreadsheetId: process.env.Google_Sheet_Id_score,
-                range: "sheet1!B2:B8",
+                range: "Culti!B2:B8",
             }),
             sheets.spreadsheets.values.get({
                 spreadsheetId: process.env.Google_Sheet_Id_score,
-                range: "sheet1!B2:B8",
+                range: "sports!B2:B8",
             })
         ]);
+        console.log("hello");
         const Total = overall.data.values?.map(value => parseInt(value[0])) || [];
         const CultiScore = culti.data.values?.map(value => parseInt(value[0])) || [];
         const SportsScore = sports.data.values?.map(value => parseInt(value[0])) || [];
