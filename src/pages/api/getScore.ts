@@ -14,27 +14,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
         });
         const sheets = google.sheets({ version: "v4", auth });
-        
-<<<<<<< HEAD
-        const [overall, culti, sports] = await Promise.all([
-            sheets.spreadsheets.values.get({
-                spreadsheetId: process.env.Google_Sheet_Id_score,
-                range: "Overall!B2:B8",
-            }),
-            sheets.spreadsheets.values.get({
-                spreadsheetId: process.env.Google_Sheet_Id_score,
-                range: "Culti!B2:B8",
-            }),
-            sheets.spreadsheets.values.get({
-                spreadsheetId: process.env.Google_Sheet_Id_score,
-                range: "sports!B2:B8",
-            })
-        ]);
-        console.log("hello");
-        const Total = overall.data.values?.map(value => parseInt(value[0])) || [];
-        const CultiScore = culti.data.values?.map(value => parseInt(value[0])) || [];
-        const SportsScore = sports.data.values?.map(value => parseInt(value[0])) || [];
-=======
         const response = await sheets.spreadsheets.values.get({
             spreadsheetId: process.env.Google_Sheet_Id_score,
             range: "Sheet1!A2:P50", // Adjust range as needed
@@ -94,8 +73,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const Total = teamOrder.map(team => teamScores[team].total);
         const CultiScore = teamOrder.map(team => teamScores[team].cultural);
         const SportsScore = teamOrder.map(team => teamScores[team].sports);
-
->>>>>>> ced24d72c5dca55c5a2cada522babb1fafa4285f
         return res.status(200).json({
             score: {
                 Total,
