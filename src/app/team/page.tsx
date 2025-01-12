@@ -1,19 +1,16 @@
 "use client";
 
-import React from 'react'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react';
-import TeamNavbar from '../components/Team_navbar'
-import { useRouter } from 'next/navigation'
-import { AnimatePresence } from 'framer-motion'
-
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import TeamNavbar from "../components/Team_navbar";
+import { AnimatePresence } from "framer-motion";
 
 // DiestaLogoBorder component
 
 function DiestaLogoBorder({ title }: { title?: string }) {
   const [isHovered, setIsHovered] = useState(false);
-  const router = useRouter();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -277,19 +274,18 @@ const TeamSection: React.FC<TeamSectionProps> = ({
 //TeamPage component
 
 const TeamPage: React.FC = () => {
-
   // Mobile navbar
   const [menuOpen, setMenuOpen] = useState(false);
   const handleMenu = () => setMenuOpen(!menuOpen);
   const handleClick = (href: string) => {
-    const element = document.querySelector(href)
+    const element = document.querySelector(href);
     if (element) {
-      const yOffset = -60
-      const y = element.getBoundingClientRect().top + window.scrollY + yOffset
-      window.scrollTo({ top: y, behavior: 'smooth' })
+      const yOffset = -60;
+      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
-    setMenuOpen(false)
-  }
+    setMenuOpen(false);
+  };
   // Typing animation of main title
 
   interface NavItem {
@@ -298,12 +294,12 @@ const TeamPage: React.FC = () => {
   }
 
   const menuItems: NavItem[] = [
-    { text: 'Events', href: '#events' },
-    { text: 'Hospitality', href: '#hospitality' },
-    { text: 'PR', href: '#pr' },
-    { text: 'Multimedia', href: '#multimedia' },
-    { text: 'Web', href: '#web' },
-  ]
+    { text: "Events", href: "#events" },
+    { text: "Hospitality", href: "#hospitality" },
+    { text: "PR", href: "#pr" },
+    { text: "Multimedia", href: "#multimedia" },
+    { text: "Web", href: "#web" },
+  ];
 
   // Typing animation of main title
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -404,39 +400,153 @@ const TeamPage: React.FC = () => {
       },
     ],
     eventCoordinators: [
-      { name: "Sivaneasan", role: "Event Coordinator", imageUrl: './Screenshot_20241202_114218_Chrome - Siva neasan.webp' },
-      { name: "Shashank", role: "Event Coordinator", imageUrl: './IMG_2444 - Javaji Shashank Goud (2).webp' },
-      { name: "Jayadeep", role: "Event Coordinator", imageUrl: './20241202_031642 - Potarlanka Jayadeep.webp' },
-      { name: "Rupesh", role: "Event Coordinator", imageUrl: './IMG-20240729-WA0014 - Devarapalli Rupesh.webp' },
-      { name: "Jaswanth", role: "Event Coordinator", imageUrl: './IMG_3398 - Killana Jaswanth.webp' },
-      { name: "Pranav ", role: "Event Coordinator", imageUrl: './20241129_011145 - Pranav Devara.webp' },
-      { name: "Bhavya Kumari", role: "Event Coordinator", imageUrl: './IMG_20230907_155610 - Meka Bhavya Kumari.webp' },
-      { name: "Meenakshi", role: "Event Coordinator", imageUrl: './Screenshot_2024-11-26-10-37-53-89_92460851df6f172a4592fca41cc2d2e6 - Kagita Meenakshi(2).webp' },
-      { name: "Kalyan", role: "Event Coordinator", imageUrl: './Kalyan.webp' },
-      { name: "Bonigi Srisanth ", role: "Event Coordinator", imageUrl: './IMG_20241126_101036 - Bonigi Srisanth.webp' },
-      { name: "K Jaswanth ", role: "Event Coordinator", imageUrl: './IMG_20241202_081338 - Kakumanu Jaswanth.webp' },
-      { name: "Shiva Chethan", role: "Event Coordinator", imageUrl: './img inter iit - Shiva Chethan Halamane(1).webp' },
-      { name: "Renu Shri", role: "Event Coordinator", imageUrl: './IMG_2508 - Aare Renu Shri.webp' }
+      {
+        name: "Sivaneasan",
+        role: "Event Coordinator",
+        imageUrl: "./Screenshot_20241202_114218_Chrome - Siva neasan.webp",
+      },
+      {
+        name: "Shashank",
+        role: "Event Coordinator",
+        imageUrl: "./IMG_2444 - Javaji Shashank Goud (2).webp",
+      },
+      {
+        name: "Jayadeep",
+        role: "Event Coordinator",
+        imageUrl: "./20241202_031642 - Potarlanka Jayadeep.webp",
+      },
+      {
+        name: "Rupesh",
+        role: "Event Coordinator",
+        imageUrl: "./IMG-20240729-WA0014 - Devarapalli Rupesh.webp",
+      },
+      {
+        name: "Jaswanth",
+        role: "Event Coordinator",
+        imageUrl: "./IMG_3398 - Killana Jaswanth.webp",
+      },
+      {
+        name: "Pranav ",
+        role: "Event Coordinator",
+        imageUrl: "./20241129_011145 - Pranav Devara.webp",
+      },
+      {
+        name: "Bhavya Kumari",
+        role: "Event Coordinator",
+        imageUrl: "./IMG_20230907_155610 - Meka Bhavya Kumari.webp",
+      },
+      {
+        name: "Meenakshi",
+        role: "Event Coordinator",
+        imageUrl:
+          "./Screenshot_2024-11-26-10-37-53-89_92460851df6f172a4592fca41cc2d2e6 - Kagita Meenakshi(2).webp",
+      },
+      { name: "Kalyan", role: "Event Coordinator", imageUrl: "./Kalyan.webp" },
+      {
+        name: "Bonigi Srisanth ",
+        role: "Event Coordinator",
+        imageUrl: "./IMG_20241126_101036 - Bonigi Srisanth.webp",
+      },
+      {
+        name: "K Jaswanth ",
+        role: "Event Coordinator",
+        imageUrl: "./IMG_20241202_081338 - Kakumanu Jaswanth.webp",
+      },
+      {
+        name: "Shiva Chethan",
+        role: "Event Coordinator",
+        imageUrl: "./img inter iit - Shiva Chethan Halamane(1).webp",
+      },
+      {
+        name: "Renu Shri",
+        role: "Event Coordinator",
+        imageUrl: "./IMG_2508 - Aare Renu Shri.webp",
+      },
     ],
     hospitalityHeads: [
-      { name: "Abhinay", role: "Hospitality Head", imageUrl: './IMG-20241124-WA0053 - Dasari Abhinayshashanth.webp' },
-      { name: "Jatin Choudary ", role: "Hospitality Head", imageUrl: './Jatin.webp' },
-      { name: "Rishi Kasturi ", role: "Hospitality Head", imageUrl: './Sai_Rishi.webp' }
+      {
+        name: "Abhinay",
+        role: "Hospitality Head",
+        imageUrl: "./IMG-20241124-WA0053 - Dasari Abhinayshashanth.webp",
+      },
+      {
+        name: "Jatin Choudary ",
+        role: "Hospitality Head",
+        imageUrl: "./Jatin.webp",
+      },
+      {
+        name: "Rishi Kasturi ",
+        role: "Hospitality Head",
+        imageUrl: "./Sai_Rishi.webp",
+      },
     ],
     hospitalityCoordinators: [
-      { name: "Mokshith Kumar", role: "Hospitality Coordinator", imageUrl: './IMG_20231021_132503_565 - Bonda Mokshith Kumar.webp' },
-      { name: "Anvesh Chandra ", role: "Hospitality Coordinator", imageUrl: './IMG_20240806_182715_166 - Anveshchandra Bavikadi.webp' },
-      { name: "Jagadeesh ", role: "Hospitality Coordinator", imageUrl: './1707648307618 - Kodadala Jagadeesh(1).webp' },
-      { name: "Dinesh ", role: "Hospitality Coordinator", imageUrl: './Dinesh.webp' },
-      { name: "Karthikeya ", role: "Hospitality Coordinator", imageUrl: './IMG_0163 - Mahenderkar Karthikeya.webp' },
-      { name: "Rahul Porika ", role: "Hospitality Coordinator", imageUrl: './IMG_2605 - Rahul Porika.webp' },
-      { name: "Adarsh Patel ", role: "Hospitality Coordinator", imageUrl: './IMG_20241125_112634 - Adarsh Patel.webp' },
-      { name: "Nikhil Rajpoot ", role: "Hospitality Coordinator", imageUrl: './IMG_20241202_160810 - Nikhil Rajpoot.webp' },
-      { name: "Harsha vardhan ", role: "Hospitality Coordinator", imageUrl: './295ed159-52cd-4b3a-9c93-997e1a614a1f - Harsha Vardhan.webp' },
-      { name: "Yasaswi reddy  ", role: "Hospitality Coordinator", imageUrl: './IMG_20241205_134920_292 - Gabbireddy Yasaswi Reddy.webp' },
-      { name: "Tejaswi", role: "Hospitality Coordinator", imageUrl: './IMG-20240616-WA0137 - Kadali Tejaswi.webp' },
-      { name: "Saipoorna", role: "Hospitality Coordinator", imageUrl: './20241124_222128 - Sammeta Sai Poorna.webp' },
-      { name: "Sree ved ", role: "Hospitality Coordinator", imageUrl: './IMG_1807 - Soma Sree Ved.webp' }
+      {
+        name: "Mokshith Kumar",
+        role: "Hospitality Coordinator",
+        imageUrl: "./IMG_20231021_132503_565 - Bonda Mokshith Kumar.webp",
+      },
+      {
+        name: "Anvesh Chandra ",
+        role: "Hospitality Coordinator",
+        imageUrl: "./IMG_20240806_182715_166 - Anveshchandra Bavikadi.webp",
+      },
+      {
+        name: "Jagadeesh ",
+        role: "Hospitality Coordinator",
+        imageUrl: "./1707648307618 - Kodadala Jagadeesh(1).webp",
+      },
+      {
+        name: "Dinesh ",
+        role: "Hospitality Coordinator",
+        imageUrl: "./Dinesh.webp",
+      },
+      {
+        name: "Karthikeya ",
+        role: "Hospitality Coordinator",
+        imageUrl: "./IMG_0163 - Mahenderkar Karthikeya.webp",
+      },
+      {
+        name: "Rahul Porika ",
+        role: "Hospitality Coordinator",
+        imageUrl: "./IMG_2605 - Rahul Porika.webp",
+      },
+      {
+        name: "Adarsh Patel ",
+        role: "Hospitality Coordinator",
+        imageUrl: "./IMG_20241125_112634 - Adarsh Patel.webp",
+      },
+      {
+        name: "Nikhil Rajpoot ",
+        role: "Hospitality Coordinator",
+        imageUrl: "./IMG_20241202_160810 - Nikhil Rajpoot.webp",
+      },
+      {
+        name: "Harsha vardhan ",
+        role: "Hospitality Coordinator",
+        imageUrl:
+          "./295ed159-52cd-4b3a-9c93-997e1a614a1f - Harsha Vardhan.webp",
+      },
+      {
+        name: "Yasaswi reddy  ",
+        role: "Hospitality Coordinator",
+        imageUrl: "./IMG_20241205_134920_292 - Gabbireddy Yasaswi Reddy.webp",
+      },
+      {
+        name: "Tejaswi",
+        role: "Hospitality Coordinator",
+        imageUrl: "./IMG-20240616-WA0137 - Kadali Tejaswi.webp",
+      },
+      {
+        name: "Saipoorna",
+        role: "Hospitality Coordinator",
+        imageUrl: "./20241124_222128 - Sammeta Sai Poorna.webp",
+      },
+      {
+        name: "Sree ved ",
+        role: "Hospitality Coordinator",
+        imageUrl: "./IMG_1807 - Soma Sree Ved.webp",
+      },
     ],
     multimediaHeads: [
       { name: "Dhruv", role: "Multimedia Head", imageUrl: "./Dhruv.webp" },
@@ -554,7 +664,10 @@ const TeamPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-900 px-4 py-12 relative overflow-hidden">
       <div className="flex items-center justify-center md:m-9">
-        <button onClick={handleMenu} aria-label={menuOpen ? 'Close menu' : 'Open menu'}>
+        <button
+          onClick={handleMenu}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+        >
           <motion.h1
             className="md:text-6xl text-[42px] font-bold p-2 bg-gradient-to-r to-pink-600 from-pink-600 via-blue-600 inline-block text-transparent bg-clip-text md:mt-4 mt-12"
             animate={{
@@ -572,12 +685,13 @@ const TeamPage: React.FC = () => {
           >
             {displayedText}
             <span
-              className={`inline-block w-0.5 md:h-12 h-8 ml-1 bg-gradient-to-b from-pink-600 to-blue-600 ${showCursor ? 'opacity-100' : 'opacity-0'}`}
-              style={{ transition: 'opacity 0.1s' }}
+              className={`inline-block w-0.5 md:h-12 h-8 ml-1 bg-gradient-to-b from-pink-600 to-blue-600 ${
+                showCursor ? "opacity-100" : "opacity-0"
+              }`}
+              style={{ transition: "opacity 0.1s" }}
             ></span>
           </motion.h1>
         </button>
-
       </div>
       <button
         onClick={scrollToTop}
@@ -595,7 +709,7 @@ const TeamPage: React.FC = () => {
         </div>
       </button>
       <TeamNavbar />
-      <div className='md:hidden'>
+      <div className="md:hidden">
         <nav className="">
           <AnimatePresence>
             {menuOpen && (
@@ -614,17 +728,20 @@ const TeamPage: React.FC = () => {
                   ✖
                 </button>
                 <motion.ul
-                  className='flex flex-col justify-center h-full px-8 space-y-6'
+                  className="flex flex-col justify-center h-full px-8 space-y-6"
                   initial="closed"
                   animate="open"
                   exit="closed"
                   variants={{
                     open: {
-                      transition: { staggerChildren: 0.07, delayChildren: 0.2 }
+                      transition: { staggerChildren: 0.07, delayChildren: 0.2 },
                     },
                     closed: {
-                      transition: { staggerChildren: 0.05, staggerDirection: -1 }
-                    }
+                      transition: {
+                        staggerChildren: 0.05,
+                        staggerDirection: -1,
+                      },
+                    },
                   }}
                 >
                   {menuItems.map((item) => (
@@ -635,23 +752,23 @@ const TeamPage: React.FC = () => {
                           y: 0,
                           opacity: 1,
                           transition: {
-                            y: { stiffness: 1000, velocity: -100 }
-                          }
+                            y: { stiffness: 1000, velocity: -100 },
+                          },
                         },
                         closed: {
                           y: 50,
                           opacity: 0,
                           transition: {
-                            y: { stiffness: 1000 }
-                          }
-                        }
+                            y: { stiffness: 1000 },
+                          },
+                        },
                       }}
                     >
                       <a
                         href={item.href}
                         onClick={(e) => {
-                          e.preventDefault()
-                          handleClick(item.href)
+                          e.preventDefault();
+                          handleClick(item.href);
                         }}
                         className={`text-[24px] font-semibold transition-colors duration-300 inline-block hover:text-purple-500 text-white
                               }`}
@@ -671,7 +788,11 @@ const TeamPage: React.FC = () => {
       <TeamSection id="events" members={teams.eventHeads} size="md" />
       <TeamSection members={teams.eventCoordinators} size="sm" />
       <DiestaLogoBorder title="HOSPITALITY" />
-      <TeamSection id="hospitality" members={teams.hospitalityHeads} size="md" />
+      <TeamSection
+        id="hospitality"
+        members={teams.hospitalityHeads}
+        size="md"
+      />
       <TeamSection members={teams.hospitalityCoordinators} size="sm" />
       <DiestaLogoBorder title="PR" />
       <TeamSection id="pr" members={teams.prHeads} size="md" />
