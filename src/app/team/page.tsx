@@ -428,7 +428,7 @@ const TeamPage: React.FC = () => {
       {
         name: "Pranav ",
         role: "Event Coordinator",
-        imageUrl: "./20241129_011145 - Pranav Devara.webp",
+        imageUrl: "./My Pic 10001 - pranav.jpg",
       },
       {
         name: "Bhavya Kumari",
