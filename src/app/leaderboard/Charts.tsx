@@ -11,7 +11,7 @@ interface ChartProps {
 
 const Charts = ({ total, cultural, sports }: ChartProps) => {
   const size = useWindowSize();
-  const barThickness = size.width < 700 ? 15 : 30;
+  const barThickness = size.width < 700 ? 11 : 30;
   const Total = {
     labels: [
       `MAE/ID/CC/HS`,
