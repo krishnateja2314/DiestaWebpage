@@ -61,7 +61,6 @@ const Charts = ({ total, cultural, sports }: ChartProps) => {
       },
     ],
   };
-  console.log(Total.labels);
   const Cultural = {
     labels: [
       "MAE/ID/CC/HS",
@@ -166,12 +165,12 @@ const Charts = ({ total, cultural, sports }: ChartProps) => {
   const Data = [Total, Cultural, Sports];
   return (
     <div>
-      <div className="w-full justify-items-center flex flex-col pt-28 gap-y-40 p-4 text-wrap">
+      <div className="w-full justify-items-center flex flex-col pt-28 gap-y-40 max-md:gap-y-20 max-sm:gap-y-12 p-4 text-wrap">
         {Data.map((data, key) => {
           return (
             <Bar
               key={key}
-              className="w-4/5 rounded-3xl p-4 leaderboard bg-black text-wrap"
+              className="w-4/5 md:rounded-3xl p-4 leaderboard bg-black text-wrap"
               data={data}
               options={{
                 indexAxis: "y",
