@@ -1,7 +1,5 @@
 import Link from "next/link";
-import { Facebook, Twitter, Instagram, Mail } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Instagram, Mail } from "lucide-react";
 
 const socialLinks = [
   {
