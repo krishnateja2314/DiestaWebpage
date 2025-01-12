@@ -26,8 +26,8 @@ async function getScores() {
     };
   }
 }
-const scores = await getScores();
 export default async function Page() {
+  const scores = await getScores();
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Charts
