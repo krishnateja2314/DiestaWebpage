@@ -31,7 +31,7 @@ const Page = async () => {
   console.log(typeof data);
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <Calender data={data.culturalEvents} />
+      <Calender culturalEvents={data.culturalEvents} sportEvents={data.sportEvents} />
     </Suspense>
   );
 };
