@@ -59,7 +59,7 @@ const page = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="flex gap-4 items-center max-md:flex-col"
+              className="flex gap-8 items-center max-md:flex-col"
             >
               <img
                 className="w-1/3 max-md:w-10/12 rounded-3xl"

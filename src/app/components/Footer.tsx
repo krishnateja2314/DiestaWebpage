@@ -9,7 +9,11 @@ const socialLinks = [
     icon: Instagram,
     href: "https://www.instagram.com/diesta_iith/",
   },
-  { name: "Mail", icon: Mail, href: "#" },
+  {
+    name: "Mail",
+    icon: Mail,
+    href: "mailto:general_secy_1@gymkhana.iith.ac.in",
+  },
 ];
 
 export default function Footer() {
