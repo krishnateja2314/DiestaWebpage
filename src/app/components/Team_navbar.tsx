@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 
 interface NavItem {
   text: string;
@@ -50,13 +49,6 @@ function TeamNavbar() {
   }, [])
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : 'unset'
-    return () => {
-      document.body.style.overflow = 'unset'
-    }
-  }, [menuOpen])
-
-  useEffect(() => {
     if (underlineRef.current) {
       const targetIndex = hoveredIndex !== null ? hoveredIndex : 0
       const offset = targetIndex * 120
@@ -64,8 +56,6 @@ function TeamNavbar() {
       underlineRef.current.style.width = hoveredIndex !== null ? '120px' : '120px'
     }
   }, [hoveredIndex])
-
-  const handleMenu = () => setMenuOpen(!menuOpen)
 
   const handleClick = (href: string) => {
     const element = document.querySelector(href)
@@ -115,121 +105,6 @@ function TeamNavbar() {
           </div>
         </nav>
       </div>
-
-      <nav className="hidden">
-        <motion.button
-          className="fixed right-1 top-4 z-50 w-12 h-12 rounded-full bg-white/10 bg-opacity-20 backdrop-filter backdrop-blur-lg flex items-center justify-center"
-          onClick={handleMenu}
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-          whileTap={{ scale: 0.9 }}
-        >
-          <motion.div
-            animate={menuOpen ? "open" : "closed"}
-            variants={{
-              open: { rotate: 180 },
-              closed: { rotate: 0 }
-            }}
-          >
-            <svg width="23" height="23" viewBox="0 0 23 23">
-              <motion.path
-                fill="transparent"
-                strokeWidth="3"
-                stroke="white"
-                strokeLinecap="round"
-                variants={{
-                  closed: { d: "M 2 2.5 L 20 2.5" },
-                  open: { d: "M 3 16.5 L 17 2.5" }
-                }}
-              />
-              <motion.path
-                fill="transparent"
-                strokeWidth="3"
-                stroke="white"
-                strokeLinecap="round"
-                d="M 2 9.423 L 20 9.423"
-                variants={{
-                  closed: { opacity: 1 },
-                  open: { opacity: 0 }
-                }}
-              />
-              <motion.path
-                fill="transparent"
-                strokeWidth="3"
-                stroke="white"
-                strokeLinecap="round"
-                variants={{
-                  closed: { d: "M 2 16.346 L 20 16.346" },
-                  open: { d: "M 3 2.5 L 17 16.346" }
-                }}
-              />
-            </svg>
-          </motion.div>
-        </motion.button>
-
-        <AnimatePresence>
-          {menuOpen && (
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 w-64 h-screen bg-black bg-opacity-20 backdrop-filter backdrop-blur-lg z-40 shadow-2xl rounded-l-3xl"
-            >
-              <motion.ul
-                className='flex flex-col justify-center h-full px-8 space-y-6'
-                initial="closed"
-                animate="open"
-                exit="closed"
-                variants={{
-                  open: {
-                    transition: { staggerChildren: 0.07, delayChildren: 0.2 }
-                  },
-                  closed: {
-                    transition: { staggerChildren: 0.05, staggerDirection: -1 }
-                  }
-                }}
-              >
-                {menuItems.map((item) => (
-                  <motion.li
-                    key={item.text}
-                    variants={{
-                      open: {
-                        y: 0,
-                        opacity: 1,
-                        transition: {
-                          y: { stiffness: 1000, velocity: -100 }
-                        }
-                      },
-                      closed: {
-                        y: 50,
-                        opacity: 0,
-                        transition: {
-                          y: { stiffness: 1000 }
-                        }
-                      }
-                    }}
-                  >
-                    <a
-                      href={item.href}
-                      onClick={(e) => {
-                        e.preventDefault()
-                        handleClick(item.href)
-                      }}
-                      className={`text-[24px] font-semibold transition-colors duration-300 inline-block ${
-                        activeSection === item.href.slice(1)
-                          ? 'bg-gradient-to-r from-cyan-500 to-pink-500 text-transparent bg-clip-text'
-                          : 'text-white hover:text-gray-200'
-                      }`}
-                    >
-                      {item.text}
-                    </a>
-                  </motion.li>
-                ))}
-              </motion.ul>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
     </>
   )
 }
