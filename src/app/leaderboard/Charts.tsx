@@ -11,7 +11,8 @@ interface ChartProps {
 
 const Charts = ({ total, cultural, sports }: ChartProps) => {
   const size = useWindowSize();
-  const barThickness = size.width < 700 ? 11 : 30;
+  const barThickness = size.width < 700 ? (size.width < 400 ? 8 : 11) : 30;
+  const fontsizes = size.width < 700 ? (size.width < 400 ? 8 : 10) : 20;
   const Total = {
     labels: [
       `MAE/ID/CC/HS`,
@@ -60,6 +61,7 @@ const Charts = ({ total, cultural, sports }: ChartProps) => {
       },
     ],
   };
+  console.log(Total.labels);
   const Cultural = {
     labels: [
       "MAE/ID/CC/HS",
@@ -121,6 +123,7 @@ const Charts = ({ total, cultural, sports }: ChartProps) => {
       {
         data: sports,
         base: 0,
+        categoryPercentage: 1,
         hoverBackgroundColor: [
           "rgba(255, 99, 132, 0.4)",
           "rgba(54, 162, 235, 0.4)",
@@ -132,6 +135,7 @@ const Charts = ({ total, cultural, sports }: ChartProps) => {
         ],
         label: "Sports",
         font: 5,
+
         barThickness: barThickness,
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
@@ -162,18 +166,22 @@ const Charts = ({ total, cultural, sports }: ChartProps) => {
   const Data = [Total, Cultural, Sports];
   return (
     <div>
-      <div className="w-full justify-items-center flex flex-col pt-28 gap-y-40 p-4 text-wrap w-5/6">
+      <div className="w-full justify-items-center flex flex-col pt-28 gap-y-40 p-4 text-wrap">
         {Data.map((data, key) => {
           return (
             <Bar
               key={key}
-              className="w-4/5 bg-black text-wrap"
+              className="w-4/5 rounded-3xl p-4 leaderboard bg-black text-wrap"
               data={data}
               options={{
                 indexAxis: "y",
                 scales: {
-                  x: { grid: { display: false } },
-                  y: { grid: { display: false } },
+                  x: { grid: { display: true }, stacked: true },
+                  y: {
+                    grid: { display: true },
+                    stacked: true,
+                    ticks: { font: { size: fontsizes } },
+                  },
                 },
               }}
             />
