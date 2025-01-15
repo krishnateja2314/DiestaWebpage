@@ -161,7 +161,6 @@ const Charts = ({ total, cultural, sports }: ChartProps) => {
   const Bar = dynamic(() => import("react-chartjs-2").then((mod) => mod.Bar), {
     ssr: false,
   });
-  console.log(cultural);
   const Data = [Total, Cultural, Sports];
   return (
     <div>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Instagram, Mail } from "lucide-react";
-
+import Scroller from "./Scroller";
 const socialLinks = [
   {
     name: "Instagram",
@@ -49,6 +49,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      <Scroller />
     </footer>
   );
 }
