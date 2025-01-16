@@ -165,29 +165,24 @@ const Charts = ({ total, cultural, sports }: ChartProps) => {
   return (
     <div>
       <div className="w-full justify-items-center flex flex-col pt-28 gap-y-40 max-md:gap-y-20 max-sm:gap-y-12 p-4 text-wrap">
-        {Data.map((item, key) => {
+        {Data.map((data, key) => {
           return (
-            <div className="flex flex-col items-center" key={key}>
-              <h2 className="text-4xl font-bold mb-4 text-center max-md:text-xl max-sm:text-lg text-purple-400">
-                {item.title}
-              </h2>
-              <Bar
-                key={key}
-                className="w-4/5 md:rounded-3xl p-4 leaderboard bg-black text-wrap"
-                data={item.chart}
-                options={{
-                  indexAxis: "y",
-                  scales: {
-                    x: { grid: { display: true }, stacked: true },
-                    y: {
-                      grid: { display: true },
-                      stacked: true,
-                      ticks: { font: { size: fontsizes } },
-                    },
+            <Bar
+              key={key}
+              className="w-4/5 md:rounded-3xl p-4 leaderboard bg-black text-wrap"
+              data={data}
+              options={{
+                indexAxis: "y",
+                scales: {
+                  x: { grid: { display: true }, stacked: true },
+                  y: {
+                    grid: { display: true },
+                    stacked: true,
+                    ticks: { font: { size: fontsizes } },
                   },
-                }}
-              />
-            </div>
+                },
+              }}
+            />
           );
         })}
       </div>

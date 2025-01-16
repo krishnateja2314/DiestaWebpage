@@ -370,7 +370,7 @@ const TeamPage: React.FC = () => {
           "./WhatsApp Image 2024-12-03 at 8.39.18 PM - Ponnamanda Manoj Kumar.webp",
       },
       {
-        name: "Venkata Dheeraj Kurapati",
+        name: "Venkata Dheeraj",
         role: "Event Head",
         imageUrl:
           "./Screenshot_2024_1202_154212 - Kurapati Venkata Dheeraj.webp",
@@ -452,9 +452,9 @@ const TeamPage: React.FC = () => {
         imageUrl: "./Jatin.webp",
       },
       {
-        name: "Sai Rishi Kasturi ",
+        name: "Rishi Kasturi ",
         role: "Hospitality Head",
-        imageUrl: "./Sai_Rishi.jpeg",
+        imageUrl: "./Sai_Rishi.webp",
       },
     ],
     hospitalityCoordinators: [
