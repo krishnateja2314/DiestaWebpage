@@ -276,7 +276,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({
 const TeamPage: React.FC = () => {
   // Mobile navbar
   const [menuOpen, setMenuOpen] = useState(false);
-  const handleMenu = () => setMenuOpen(!menuOpen);
+  const handleMenu = () => {setMenuOpen(!menuOpen); setbutVisible(!butVisible)};
   const handleClick = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -365,6 +365,8 @@ const TeamPage: React.FC = () => {
       window.removeEventListener("scroll", toggleVisibility);
     };
   }, []);
+
+  const [butVisible, setbutVisible] = useState(true)
 
   // Team information
   const teams: Teams = {
@@ -697,7 +699,7 @@ const TeamPage: React.FC = () => {
         onClick={scrollToTop}
         className={`${
           isVisible ? "opacity-100" : "opacity-0"
-        } fixed bottom-4 md:right-4 right-1 md:p-3 p-2 rounded-full md:hidden z-50 bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg transition-all duration-300 hover:bg-white/20 hover:scale-110 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] group`}
+        } fixed bottom-4 md:right-4 right-1 md:p-3 p-2 rounded-full z-50 bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg transition-all duration-300 hover:bg-white/20 hover:scale-110 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] group`}
       >
         <div className="relative w-8 h-8 transform transition-transform group-hover:-translate-y-1">
           <Image
@@ -718,11 +720,11 @@ const TeamPage: React.FC = () => {
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="fixed top-0 right-0 w-64 h-screen bg-black bg-opacity-20 backdrop-filter backdrop-blur-lg z-50 shadow-2xl rounded-tl-3xl"
+                className="fixed top-0 right-0 w-64 h-screen bg-black bg-opacity-20 backdrop-filter backdrop-blur-lg z-50 shadow-2xl rounded-l-3xl"
               >
-                <button
-                  onClick={() => setMenuOpen(false)}
-                  className="absolute top-4 right-4 text-2xl p-2 rounded-full"
+<button
+                  onClick={() =>{ setMenuOpen(false); setbutVisible(true)}}
+                  className="absolute top-4 hover:text-purple-500 right-4 text-white text-2xl p-2 rounded-full"
                   aria-label="Close Menu"
                 >
                   ✖
@@ -783,6 +785,15 @@ const TeamPage: React.FC = () => {
           </AnimatePresence>
         </nav>
       </div>
+      {
+        butVisible && (
+          <button className='md:hidden' onClick={handleMenu}>
+          <div className='fixed bg-black bg-opacity-20 backdrop-filter backdrop-blur-lg z-50 shadow-2xl rounded-l-3xl text-white h-20 top-40 right-0 w-5 flex justify-center items-center'>
+            <span className='animate-bounce'>{'<'}</span>
+          </div>
+          </button>
+        )
+      }
       <TeamSection members={teams.overallCoordinators} size="lg" />
       <DiestaLogoBorder title="EVENTS" />
       <TeamSection id="events" members={teams.eventHeads} size="md" />
