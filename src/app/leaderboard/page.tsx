@@ -1,7 +1,10 @@
 import { Suspense } from "react";
 import Charts from "./Charts";
 import { headers } from "next/headers";
-
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "leaderboard",
+};
 async function getScores() {
   try {
     const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
