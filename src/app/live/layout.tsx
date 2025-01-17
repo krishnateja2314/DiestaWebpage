@@ -1,7 +1,7 @@
 import "../globals.css";
 import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "events",
+  title: "live",
 };
 
 export default function RootLayout({
