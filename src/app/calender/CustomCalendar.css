@@ -38,8 +38,21 @@
     text-decoration: none;
 }
 
+/* Set background color to black for navigation label */
+.react-calendar__navigation button {
+    background-color: black !important;
+    color: white !important;
+    border-radius: 10px;
+}
+
 /* Add hover effect for the top div */
 .react-calendar__navigation button:hover {
+    background-color: #e0b3ff !important;
+    color: white !important;
+    border-radius: 10px;
+}
+
+.react-calendar__tile:hover {
     background-color: #e0b3ff !important;
     color: white !important;
     border-radius: 10px;
