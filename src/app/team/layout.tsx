@@ -1,14 +1,9 @@
-import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import "../globals.css";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import type { Metadata } from "next";
-
 export const metadata: Metadata = {
-  title: {
-    default: "Diesta IITH",
-    template: "%s | Diesta IITH",
-  },
-  description: "Interdepartmental competition of IITH",
+  title: "Team",
 };
 
 export default function RootLayout({

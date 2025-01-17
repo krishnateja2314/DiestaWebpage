@@ -276,7 +276,10 @@ const TeamSection: React.FC<TeamSectionProps> = ({
 const TeamPage: React.FC = () => {
   // Mobile navbar
   const [menuOpen, setMenuOpen] = useState(false);
-  const handleMenu = () => {setMenuOpen(!menuOpen); setbutVisible(!butVisible)};
+  const handleMenu = () => {
+    setMenuOpen(!menuOpen);
+    setbutVisible(!butVisible);
+  };
   const handleClick = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -366,7 +369,7 @@ const TeamPage: React.FC = () => {
     };
   }, []);
 
-  const [butVisible, setbutVisible] = useState(true)
+  const [butVisible, setbutVisible] = useState(true);
 
   // Team information
   const teams: Teams = {
@@ -722,8 +725,11 @@ const TeamPage: React.FC = () => {
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 className="fixed top-0 right-0 w-64 h-screen bg-black bg-opacity-20 backdrop-filter backdrop-blur-lg z-50 shadow-2xl rounded-l-3xl"
               >
-<button
-                  onClick={() =>{ setMenuOpen(false); setbutVisible(true)}}
+                <button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setbutVisible(true);
+                  }}
                   className="absolute top-4 hover:text-purple-500 right-4 text-white text-2xl p-2 rounded-full"
                   aria-label="Close Menu"
                 >
@@ -785,15 +791,13 @@ const TeamPage: React.FC = () => {
           </AnimatePresence>
         </nav>
       </div>
-      {
-        butVisible && (
-          <button className='md:hidden' onClick={handleMenu}>
-          <div className='fixed bg-black bg-opacity-20 backdrop-filter backdrop-blur-lg z-50 shadow-2xl rounded-l-3xl text-white h-20 top-40 right-0 w-5 flex justify-center items-center'>
-            <span className='animate-bounce'>{'<'}</span>
+      {butVisible && (
+        <button className="md:hidden" onClick={handleMenu}>
+          <div className="fixed bg-black bg-opacity-20 backdrop-filter backdrop-blur-lg z-50 shadow-2xl rounded-l-3xl text-white h-20 top-40 right-0 w-5 flex justify-center items-center">
+            <span className="animate-bounce">{"<"}</span>
           </div>
-          </button>
-        )
-      }
+        </button>
+      )}
       <TeamSection members={teams.overallCoordinators} size="lg" />
       <DiestaLogoBorder title="EVENTS" />
       <TeamSection id="events" members={teams.eventHeads} size="md" />

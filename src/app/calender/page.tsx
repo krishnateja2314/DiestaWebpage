@@ -1,6 +1,10 @@
 import { Suspense } from "react";
 import Calender from "./Calender";
 import { headers } from "next/headers";
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "calender",
+};
 async function getEvents() {
   try {
     const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
