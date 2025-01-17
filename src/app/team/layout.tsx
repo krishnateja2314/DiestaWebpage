@@ -12,12 +12,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className=" bg-gray-900 text-gray-100 text-2xl  max-md:text-xl">
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <div className=" bg-gray-900 text-gray-100 text-2xl  max-md:text-xl">
+      <Navbar />
+      {children}
+      <Footer />
+    </div>
   );
 }
