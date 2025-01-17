@@ -4,8 +4,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
-  title: "Diesta",
-  description: "Track all the scores",
+  title: "Diesta iith",
+  description: "Interdepartmental competition of IITH",
 };
 
 export default function RootLayout({
