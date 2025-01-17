@@ -13,9 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <div className=" bg-gray-900 text-gray-100 text-2xl  max-md:text-xl">
-      <Navbar />
       {children}
-      <Footer />
     </div>
   );
 }
