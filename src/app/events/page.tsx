@@ -2,7 +2,6 @@
 import React from "react";
 import Section from "../components/Section";
 import { motion } from "framer-motion";
-
 const Events = [
   {
     title: "Opening Ceremony",
@@ -16,7 +15,7 @@ const Events = [
     date: "25th january, 2025",
     discription:
       "Battle of Bands is a music competition where bands from different collages participate.",
-    image: "/diestaLogo.svg",
+    image: "/battle of bands.JPG",
   },
   {
     title: "Dance Performance",
@@ -30,14 +29,14 @@ const Events = [
     date: "23rd january, 2025",
     discription:
       "Otaku Cosplay is a cosplay competition where participants dress up as their favorite anime characters.",
-    image: "/diestaLogo.svg",
+    image: "/cosplay.JPG",
   },
   {
     title: "DJ Night",
     date: "26th january, 2025",
     discription:
       "DJ Night is a music event where participants can enjoy music and dance.",
-    image: "/diestaLogo.svg",
+    image: "/dj.JPG",
   },
   {
     title: "Closing Ceremony",

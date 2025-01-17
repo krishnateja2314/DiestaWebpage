@@ -167,7 +167,6 @@ const Charts = ({ total, cultural, sports }: ChartProps) => {
     { chart: Cultural, title: "Cultural Points" },
     { chart: Sports, title: "Sports Points" }
   ];
-
   return (
     <div>
       <div className="w-full justify-items-center flex flex-col pt-28 gap-y-40 max-md:gap-y-20 max-sm:gap-y-12 p-4 text-wrap">

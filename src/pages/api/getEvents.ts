@@ -21,7 +21,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         });
         const sportsEvents = await sheets.spreadsheets.values.get({
           spreadsheetId: process.env.Google_Sheet_Id_events_sport,
-          range: "Sheet1!A2:H3",
+          range: "Sheet1!A2:G57",
         });
         
 

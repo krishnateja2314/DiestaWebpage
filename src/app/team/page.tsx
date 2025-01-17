@@ -276,7 +276,10 @@ const TeamSection: React.FC<TeamSectionProps> = ({
 const TeamPage: React.FC = () => {
   // Mobile navbar
   const [menuOpen, setMenuOpen] = useState(false);
-  const handleMenu = () => setMenuOpen(!menuOpen);
+  const handleMenu = () => {
+    setMenuOpen(!menuOpen);
+    setbutVisible(!butVisible);
+  };
   const handleClick = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -366,6 +369,8 @@ const TeamPage: React.FC = () => {
     };
   }, []);
 
+  const [butVisible, setbutVisible] = useState(true);
+
   // Team information
   const teams: Teams = {
     overallCoordinators: [
@@ -418,7 +423,7 @@ const TeamPage: React.FC = () => {
       {
         name: "Rupesh",
         role: "Event Coordinator",
-        imageUrl: "./IMG-20240729-WA0014 - Devarapalli Rupesh.webp",
+        imageUrl: "./rupesh.webp",
       },
       {
         name: "Jaswanth",
@@ -455,7 +460,7 @@ const TeamPage: React.FC = () => {
       {
         name: "Shiva Chethan",
         role: "Event Coordinator",
-        imageUrl: "./img inter iit - Shiva Chethan Halamane(1).webp",
+        imageUrl: "./shiva chethan.webp",
       },
       {
         name: "Renu Shri",
@@ -467,7 +472,7 @@ const TeamPage: React.FC = () => {
       {
         name: "Abhinay",
         role: "Hospitality Head",
-        imageUrl: "./IMG-20241124-WA0053 - Dasari Abhinayshashanth.webp",
+        imageUrl: "./abhinay.webp",
       },
       {
         name: "Jatin Choudary ",
@@ -602,14 +607,14 @@ const TeamPage: React.FC = () => {
     ],
     prHeads: [
       {
-        name: "Nikita",
+        name: "Nikita Tuwani",
         role: "PR Head",
         imageUrl: "./Nikita Tuwani ( Publicity Head) - Nikita Tuwani.webp",
       },
       {
         name: "Balusu Bhanu Prakash",
         role: "PR Head",
-        imageUrl: "./FullSizeRender(5) - Balusu Bhanu Prakash.webp",
+        imageUrl: "./bhanu prakash.webp",
       },
     ],
     prCoordinators: [
@@ -628,7 +633,7 @@ const TeamPage: React.FC = () => {
       {
         name: "Athiradh",
         role: "PR Coordinator",
-        imageUrl: "./athiradh 1 1 - Athiradh R N(1).webp",
+        imageUrl: "./Athiradh.webp",
       },
       { name: "Dharani", role: "PR Coordinator", imageUrl: "./Dharani.webp" },
       {
@@ -697,7 +702,7 @@ const TeamPage: React.FC = () => {
         onClick={scrollToTop}
         className={`${
           isVisible ? "opacity-100" : "opacity-0"
-        } fixed bottom-4 md:right-4 right-1 md:p-3 p-2 rounded-full md:hidden z-50 bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg transition-all duration-300 hover:bg-white/20 hover:scale-110 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] group`}
+        } fixed bottom-4 md:right-4 right-1 md:p-3 p-2 rounded-full z-50 bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg transition-all duration-300 hover:bg-white/20 hover:scale-110 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] group`}
       >
         <div className="relative w-8 h-8 transform transition-transform group-hover:-translate-y-1">
           <Image
@@ -718,11 +723,14 @@ const TeamPage: React.FC = () => {
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="fixed top-0 right-0 w-64 h-screen bg-black bg-opacity-20 backdrop-filter backdrop-blur-lg z-50 shadow-2xl rounded-tl-3xl"
+                className="fixed top-0 right-0 w-64 h-screen bg-black bg-opacity-20 backdrop-filter backdrop-blur-lg z-50 shadow-2xl rounded-l-3xl"
               >
                 <button
-                  onClick={() => setMenuOpen(false)}
-                  className="absolute top-4 right-4 text-2xl p-2 rounded-full"
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setbutVisible(true);
+                  }}
+                  className="absolute top-4 hover:text-purple-500 right-4 text-white text-2xl p-2 rounded-full"
                   aria-label="Close Menu"
                 >
                   ✖
@@ -783,6 +791,14 @@ const TeamPage: React.FC = () => {
           </AnimatePresence>
         </nav>
       </div>
+      {
+        butVisible && (
+          <button className='md:hidden' onClick={handleMenu}>
+          <div className='fixed bg-black bg-opacity-20 backdrop-filter backdrop-blur-lg z-50 shadow-2xl rounded-l-3xl text-purple-500 h-24 top-36 right-0 w-5 flex justify-center items-center'>
+            <span className='animate-bounce'>{'<'}</span>
+          </div>
+        </button>
+      )}
       <TeamSection members={teams.overallCoordinators} size="lg" />
       <DiestaLogoBorder title="EVENTS" />
       <TeamSection id="events" members={teams.eventHeads} size="md" />
