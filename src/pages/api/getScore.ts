@@ -51,7 +51,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 const score = parseInt(String(row[colIndex])) || 0;
                 if (type === 'cultural') {
                     teamScores[team].cultural += score;
-                } else if (type.startsWith('sports')) {
+                } else if (type.startsWith('sports') || type.startsWith('athletics') || type.startsWith('aquatics')){
                     teamScores[team].sports += score;
                 }
                 teamScores[team].total += score;
