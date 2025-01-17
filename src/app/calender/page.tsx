@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "calender",
 };
+
+import "./CustomCalendar.css";
 async function getEvents() {
   try {
     const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
