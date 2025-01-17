@@ -420,7 +420,7 @@ const TeamPage: React.FC = () => {
       {
         name: "Rupesh",
         role: "Event Coordinator",
-        imageUrl: "./IMG-20240729-WA0014 - Devarapalli Rupesh.webp",
+        imageUrl: "./rupesh.webp",
       },
       {
         name: "Jaswanth",
@@ -457,7 +457,7 @@ const TeamPage: React.FC = () => {
       {
         name: "Shiva Chethan",
         role: "Event Coordinator",
-        imageUrl: "./img inter iit - Shiva Chethan Halamane(1).webp",
+        imageUrl: "./shiva chethan.webp",
       },
       {
         name: "Renu Shri",
@@ -469,7 +469,7 @@ const TeamPage: React.FC = () => {
       {
         name: "Abhinay",
         role: "Hospitality Head",
-        imageUrl: "./IMG-20241124-WA0053 - Dasari Abhinayshashanth.webp",
+        imageUrl: "./abhinay.webp",
       },
       {
         name: "Jatin Choudary ",
@@ -604,14 +604,14 @@ const TeamPage: React.FC = () => {
     ],
     prHeads: [
       {
-        name: "Nikita",
+        name: "Nikita Tuwani",
         role: "PR Head",
         imageUrl: "./Nikita Tuwani ( Publicity Head) - Nikita Tuwani.webp",
       },
       {
         name: "Balusu Bhanu Prakash",
         role: "PR Head",
-        imageUrl: "./FullSizeRender(5) - Balusu Bhanu Prakash.webp",
+        imageUrl: "./bhanu prakash.webp",
       },
     ],
     prCoordinators: [
@@ -630,7 +630,7 @@ const TeamPage: React.FC = () => {
       {
         name: "Athiradh",
         role: "PR Coordinator",
-        imageUrl: "./athiradh 1 1 - Athiradh R N(1).webp",
+        imageUrl: "./Athiradh.webp",
       },
       { name: "Dharani", role: "PR Coordinator", imageUrl: "./Dharani.webp" },
       {
@@ -788,7 +788,7 @@ const TeamPage: React.FC = () => {
       {
         butVisible && (
           <button className='md:hidden' onClick={handleMenu}>
-          <div className='fixed bg-black bg-opacity-20 backdrop-filter backdrop-blur-lg z-50 shadow-2xl rounded-l-3xl text-white h-20 top-40 right-0 w-5 flex justify-center items-center'>
+          <div className='fixed bg-black bg-opacity-20 backdrop-filter backdrop-blur-lg z-50 shadow-2xl rounded-l-3xl text-purple-500 h-24 top-36 right-0 w-5 flex justify-center items-center'>
             <span className='animate-bounce'>{'<'}</span>
           </div>
           </button>
