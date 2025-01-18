@@ -30,6 +30,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             'Staff': { cultural: 0, sports: 0, total: 0 }
         };
 
+        const teamColumns: Record<string, number> = {
+            'MAE/ID/CC/HS': 9,       // Column J
+            'CE/MSME/LA/EM': 8,      // Column I
+            'CH/CHY/IC/Design': 7,    // Column H
+            'CSE/MnC/MATHS': 4,      // Column E
+            'EE/AI/ICDT/COE': 5,     // Column F
+            'BME/BT/ES/EP/Physics': 6, // Column G
+            'Staff': 10              // Column K
+        };
+
         values.forEach((row: (string | number)[]) => {
             if (!row[2] || !row[3]) return; 
 
@@ -37,27 +47,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             const status = String(row[3]).toLowerCase();
 
             if (status !== 'done') return;
-            const teamColumns: Record<string, number> = {
-                'MAE/ID/CC/HS': 9,       // Column J
-                'CE/MSME/LA/EM': 8,      // Column F
-                'CH/CHY/IC/Design': 7,   // Column H
-                'CSE/MnC/MATHS': 4,      // Column E
-                'EE/AI/ICDT/COE': 5,     // Column I
-                'BME/BT/ES/EP/Physics': 6, // Column G
-                'Staff': 10              // Column K
-            };
 
             Object.entries(teamColumns).forEach(([team, colIndex]) => {
                 const score = parseInt(String(row[colIndex])) || 0;
                 if (type === 'cultural') {
                     teamScores[team].cultural += score;
-                } else if (type.startsWith('sports') || type.startsWith('athletics') || type.startsWith('aquatics')){
+                } else if (type === 'sports (m)' || type === 'sports (w)' || 
+                         type === 'athletics' || type === 'aquatics') {
                     teamScores[team].sports += score;
                 }
-                teamScores[team].total += score;
+                teamScores[team].total = teamScores[team].cultural + teamScores[team].sports;
             });
         });
 
+        // Updated team order to match the leaderboard display order
         const teamOrder = [
             'MAE/ID/CC/HS',
             'CE/MSME/LA/EM',
