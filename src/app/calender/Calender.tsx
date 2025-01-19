@@ -20,6 +20,7 @@ interface SportsEvent {
   TeamB: string;
   Status: string;
   Winner: string;
+  Score: string;
 }
 
 interface EventProps {
@@ -70,33 +71,33 @@ const Calender = ({ culturalEvents = [], sportEvents = [] }: EventProps) => {
     <>
       <div className="pt-32 flex flex-col items-center space-y-8 overflow-x-hidden">
         <div className="flex justify-center space-x-4">
-            <button
-              className={`p-2 rounded ${
+          <button
+            className={`p-2 rounded ${
               activeTab === "cultural"
-              ? "bg-black text-purple-500 shadow-[0_0_10px_5px_rgba(192,132,252,0.5)]"
-              : "bg-black text-white"
-              }`}
-              onClick={() => setActiveTab("cultural")}
-            >
-              Cultural Events
-            </button>
-            <button
-              className={`p-2 rounded ${
+                ? "bg-black text-purple-500 shadow-[0_0_10px_5px_rgba(192,132,252,0.5)]"
+                : "bg-black text-white"
+            }`}
+            onClick={() => setActiveTab("cultural")}
+          >
+            Cultural Events
+          </button>
+          <button
+            className={`p-2 rounded ${
               activeTab === "sports"
-              ? "bg-black text-purple-500 shadow-[0_0_10px_5px_rgba(192,132,252,0.5)]"
-              : "bg-black text-white"
-              }`}
-              onClick={() => setActiveTab("sports")}
-            >
-              Sports Events
-            </button>
+                ? "bg-black text-purple-500 shadow-[0_0_10px_5px_rgba(192,132,252,0.5)]"
+                : "bg-black text-white"
+            }`}
+            onClick={() => setActiveTab("sports")}
+          >
+            Sports Events
+          </button>
         </div>
         <div className="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-8">
-            <div className="flex justify-center mt-8 md:mt-0">
+          <div className="flex justify-center mt-8 md:mt-0">
             <Calendar
               className="calendar-custom"
               formatMonthYear={(locale, date) =>
-              date.toLocaleString(locale, { month: "long" })
+                date.toLocaleString(locale, { month: "long" })
               }
               onChange={handleDateChange}
               value={selectedDate}
@@ -106,16 +107,14 @@ const Calender = ({ culturalEvents = [], sportEvents = [] }: EventProps) => {
               prev2Label={null}
               next2Label={null}
               tileContent={({ date, view }) =>
-              view === "month" &&
-              hasEvent(date) && (
-                <div className="w-2 h-2 bg-purple-700 rounded-full"></div>
-              )
+                view === "month" &&
+                hasEvent(date) && (
+                  <div className="w-2 h-2 bg-purple-700 rounded-full"></div>
+                )
               }
             />
-            </div>
-          <div
-            className="bg-black text-white p-4 rounded-xl text-center w-full md:w-[30vw]"
-          >
+          </div>
+          <div className="bg-black text-white p-4 rounded-xl text-center w-full md:w-[30vw]">
             <h1 className="text-2xl font-bold" style={{ color: "#C084FC" }}>
               {activeTab === "cultural" ? "Cultural Events" : "Sports Events"}
             </h1>
@@ -151,8 +150,8 @@ const Calender = ({ culturalEvents = [], sportEvents = [] }: EventProps) => {
                   No cultural events for this day
                 </p>
               )
-            ) : eventsForSelectedDate.filter((event) => "sport" in event).length >
-              0 ? (
+            ) : eventsForSelectedDate.filter((event) => "sport" in event)
+                .length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {eventsForSelectedDate
                   .filter((event) => "sport" in event)
@@ -169,22 +168,22 @@ const Calender = ({ culturalEvents = [], sportEvents = [] }: EventProps) => {
                         {event.sport} - {event.matchtype}
                       </h2>
                       <h3 className="text-sm">
-                        Participants: {" "}
+                        Participants:{" "}
                         <span className="font-semibold">{event.TeamA}</span>{" "}
-                        <span className="text-lg">
-                          {" "}
-                          vs{" "}
-                        </span>{" "}
+                        <span className="text-lg"> vs </span>{" "}
                         <span className="font-semibold">{event.TeamB}</span>
                       </h3>
                       <h3 className="text-sm">Time: {event.time}</h3>
                       <p className="text-sm">Status: {event.Status}</p>
                       <p className="text-sm">Winner: {event.Winner}</p>
+                      <p className="text-sm">Score: {event.Score}</p>
                     </div>
                   ))}
               </div>
             ) : (
-              <p className="text-white text-lg">No sports events for this day</p>
+              <p className="text-white text-lg">
+                No sports events for this day
+              </p>
             )}
           </div>
         </div>
